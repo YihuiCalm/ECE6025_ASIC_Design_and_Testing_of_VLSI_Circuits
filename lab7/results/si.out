@@ -1,0 +1,106 @@
+@(#)$CDS: LVS version 6.1.7-64b 08/21/2018 19:40 (sjfhw315) $
+
+Command line: /apps/vlsi_2018/cadence/IC617/tools.lnx86/dfII/bin/64bit/LVS -dir /home/ead/yihui/cadence/LVS -l -s -t /home/ead/yihui/cadence/LVS/layout /home/ead/yihui/cadence/LVS/schematic
+Like matching is enabled.
+Net swapping is enabled.
+Using terminal names as correspondence points.
+Compiling Diva LVS rules...
+
+    Net-list summary for /home/ead/yihui/cadence/LVS/layout/netlist
+       count
+        195             nets
+        19              terminals
+        163             pmos
+        163             nmos
+
+    Net-list summary for /home/ead/yihui/cadence/LVS/schematic/netlist
+       count
+        195             nets
+        21              terminals
+        163             pmos
+        163             nmos
+
+
+    Terminal correspondence points
+    N181      N42       a<0>
+    N178      N32       a<1>
+    N176      N37       a<2>
+    N193      N36       a<3>
+    N189      N43       b<0>
+    N188      N30       b<1>
+    N186      N34       b<2>
+    N184      N33       b<3>
+    N191      N29       cin
+    N185      N27       clk
+    N187      N45       cout
+    N180      N31       rst
+    N183      N41       sum<0>
+    N182      N40       sum<1>
+    N179      N39       sum<2>
+    N177      N38       sum<3>
+    N194      N44       test_se
+    N192      N28       test_si
+    N190      N46       test_so
+
+Devices in the netlist but not in the rules:
+        pcapacitor
+Devices in the rules but not in the netlist:
+        cap nfet pfet nmos4 pmos4
+
+The net-lists match.
+
+                             layout  schematic
+                                instances
+        un-matched              0       0      
+        rewired                 0       0      
+        size errors             0       0      
+        pruned                  0       0      
+        active                  326     326    
+        total                   326     326    
+
+                                  nets
+        un-matched              0       0      
+        merged                  0       0      
+        pruned                  0       0      
+        active                  195     195    
+        total                   195     195    
+
+                                terminals
+        un-matched              0       0      
+        matched but
+        different type          0       0      
+        total                   19      21     
+
+
+Probe files from /home/ead/yihui/cadence/LVS/schematic
+
+devbad.out:
+
+netbad.out:
+
+mergenet.out:
+
+termbad.out:
+
+prunenet.out:
+
+prunedev.out:
+
+audit.out:
+
+
+Probe files from /home/ead/yihui/cadence/LVS/layout
+
+devbad.out:
+
+netbad.out:
+
+mergenet.out:
+
+termbad.out:
+
+prunenet.out:
+
+prunedev.out:
+
+audit.out:

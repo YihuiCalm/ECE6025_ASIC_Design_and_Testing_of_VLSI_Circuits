@@ -1,0 +1,6 @@
+xmverilog(64): 17.10-s001: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	xmverilog	17.10-s001: Started on Oct 19, 2023 at 00:25:42 EDT
+xmverilog
+	-gui
+xmverilog: *E,NOMOPT: You have not specified a -R (or a -r <snapshot>) option, nor have you specified a source file for compilation.
+TOOL:	xmverilog	17.10-s001: Exiting on Oct 19, 2023 at 00:25:42 EDT  (total: 00:00:00)

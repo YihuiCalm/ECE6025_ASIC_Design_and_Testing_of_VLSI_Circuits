@@ -1,0 +1,492 @@
+(DELAYFILE
+(SDFVERSION "OVI 1.0")
+(DESIGN "ripplecarry4_clk")
+(DATE "Thu Oct 19 14:02:09 2023")
+(VENDOR "osu05_stdcells")
+(PROGRAM "Synopsys Design Compiler cmos")
+(VERSION "O-2018.06-SP1")
+(DIVIDER /)
+(VOLTAGE 5.00:5.00:5.00)
+(PROCESS)
+(TEMPERATURE 25.00:25.00:25.00)
+(TIMESCALE 1ns)
+(CELL
+  (CELLTYPE "ripplecarry4_clk")
+  (INSTANCE)
+  (DELAY
+    (ABSOLUTE
+    (INTERCONNECT U19/Y U20/A (0.000:0.000:0.000))
+    (INTERCONNECT a[3] U19/A (0.000:0.000:0.000))
+    (INTERCONNECT U17/Y U18/A (0.000:0.000:0.000))
+    (INTERCONNECT a[2] U17/A (0.000:0.000:0.000))
+    (INTERCONNECT U15/Y U16/A (0.000:0.000:0.000))
+    (INTERCONNECT a[1] U15/A (0.000:0.000:0.000))
+    (INTERCONNECT U13/Y U14/A (0.000:0.000:0.000))
+    (INTERCONNECT a[0] U13/A (0.000:0.000:0.000))
+    (INTERCONNECT U11/Y U12/A (0.000:0.000:0.000))
+    (INTERCONNECT b[3] U11/A (0.000:0.000:0.000))
+    (INTERCONNECT U9/Y U10/A (0.000:0.000:0.000))
+    (INTERCONNECT b[2] U9/A (0.000:0.000:0.000))
+    (INTERCONNECT U7/Y U8/A (0.000:0.000:0.000))
+    (INTERCONNECT b[1] U7/A (0.000:0.000:0.000))
+    (INTERCONNECT U5/Y U6/A (0.000:0.000:0.000))
+    (INTERCONNECT b[0] U5/A (0.000:0.000:0.000))
+    (INTERCONNECT U3/Y U4/A (0.000:0.000:0.000))
+    (INTERCONNECT cin U3/A (0.000:0.000:0.000))
+    (INTERCONNECT fa2/U1/Y c2_reg_reg/D (0.000:0.000:0.000))
+    (INTERCONNECT clk c2_reg_reg/CLK (0.000:0.000:0.000))
+    (INTERCONNECT fa1/U1/Y c1_reg_reg/D (0.000:0.000:0.000))
+    (INTERCONNECT clk c1_reg_reg/CLK (0.000:0.000:0.000))
+    (INTERCONNECT fa0/U1/Y c0_reg_reg/D (0.000:0.000:0.000))
+    (INTERCONNECT clk c0_reg_reg/CLK (0.000:0.000:0.000))
+    (INTERCONNECT fa3/u1_half_adder/U1/Y fa3/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT fa3/u2_half_adder/U1/Y fa3/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT fa3/u1_half_adder/U2/Y fa3/u2_half_adder/U2/A (0.000:0.000:0.000))
+    (INTERCONNECT c2_reg_reg/Q fa3/u2_half_adder/U2/B (0.000:0.000:0.000))
+    (INTERCONNECT fa3/u1_half_adder/U2/Y fa3/u2_half_adder/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT c2_reg_reg/Q fa3/u2_half_adder/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT U12/Y fa3/u1_half_adder/U2/A (0.000:0.000:0.000))
+    (INTERCONNECT U20/Y fa3/u1_half_adder/U2/B (0.000:0.000:0.000))
+    (INTERCONNECT U12/Y fa3/u1_half_adder/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT U20/Y fa3/u1_half_adder/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT fa2/u1_half_adder/U1/Y fa2/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT fa2/u2_half_adder/U1/Y fa2/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT fa2/u1_half_adder/U2/Y fa2/u2_half_adder/U2/A (0.000:0.000:0.000))
+    (INTERCONNECT c1_reg_reg/Q fa2/u2_half_adder/U2/B (0.000:0.000:0.000))
+    (INTERCONNECT fa2/u1_half_adder/U2/Y fa2/u2_half_adder/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT c1_reg_reg/Q fa2/u2_half_adder/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT U10/Y fa2/u1_half_adder/U2/A (0.000:0.000:0.000))
+    (INTERCONNECT U18/Y fa2/u1_half_adder/U2/B (0.000:0.000:0.000))
+    (INTERCONNECT U10/Y fa2/u1_half_adder/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT U18/Y fa2/u1_half_adder/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT fa1/u1_half_adder/U1/Y fa1/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT fa1/u2_half_adder/U1/Y fa1/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT fa1/u1_half_adder/U2/Y fa1/u2_half_adder/U2/A (0.000:0.000:0.000))
+    (INTERCONNECT c0_reg_reg/Q fa1/u2_half_adder/U2/B (0.000:0.000:0.000))
+    (INTERCONNECT fa1/u1_half_adder/U2/Y fa1/u2_half_adder/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT c0_reg_reg/Q fa1/u2_half_adder/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT U8/Y fa1/u1_half_adder/U2/A (0.000:0.000:0.000))
+    (INTERCONNECT U16/Y fa1/u1_half_adder/U2/B (0.000:0.000:0.000))
+    (INTERCONNECT U8/Y fa1/u1_half_adder/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT U16/Y fa1/u1_half_adder/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT fa0/u1_half_adder/U1/Y fa0/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT fa0/u2_half_adder/U1/Y fa0/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT fa0/u1_half_adder/U2/Y fa0/u2_half_adder/U2/A (0.000:0.000:0.000))
+    (INTERCONNECT U4/Y fa0/u2_half_adder/U2/B (0.000:0.000:0.000))
+    (INTERCONNECT fa0/u1_half_adder/U2/Y fa0/u2_half_adder/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT U4/Y fa0/u2_half_adder/U1/B (0.000:0.000:0.000))
+    (INTERCONNECT U6/Y fa0/u1_half_adder/U2/A (0.000:0.000:0.000))
+    (INTERCONNECT U14/Y fa0/u1_half_adder/U2/B (0.000:0.000:0.000))
+    (INTERCONNECT U6/Y fa0/u1_half_adder/U1/A (0.000:0.000:0.000))
+    (INTERCONNECT U14/Y fa0/u1_half_adder/U1/B (0.000:0.000:0.000))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U20)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.111:0.111:0.111) (0.120:0.120:0.120))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U19)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U18)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.111:0.111:0.111) (0.120:0.120:0.120))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U17)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U16)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.111:0.111:0.111) (0.120:0.120:0.120))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U15)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U14)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.111:0.111:0.111) (0.120:0.120:0.120))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U13)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U12)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.103:0.103:0.103) (0.110:0.110:0.110))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U11)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U10)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.103:0.103:0.103) (0.110:0.110:0.110))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U9)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U8)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.103:0.103:0.103) (0.110:0.110:0.110))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U7)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U6)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.103:0.103:0.103) (0.110:0.110:0.110))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U5)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U4)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.111:0.111:0.111) (0.120:0.120:0.120))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "INVX2")
+  (INSTANCE U3)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.075:0.075:0.075) (0.071:0.071:0.071))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "DFFPOSX1")
+  (INSTANCE c2_reg_reg)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH CLK Q (0.266:0.266:0.266) (0.373:0.373:0.373))
+    )
+  )
+  (TIMINGCHECK
+    (WIDTH (posedge CLK) (0.204:0.204:0.204))
+    (WIDTH (negedge CLK) (0.179:0.179:0.179))
+    (HOLD D (posedge CLK) (-0.090:-0.067:-0.067))
+    (SETUP D (posedge CLK) (0.286:0.287:0.287))
+  )
+)
+(CELL
+  (CELLTYPE "DFFPOSX1")
+  (INSTANCE c1_reg_reg)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH CLK Q (0.266:0.266:0.266) (0.373:0.373:0.373))
+    )
+  )
+  (TIMINGCHECK
+    (WIDTH (posedge CLK) (0.204:0.204:0.204))
+    (WIDTH (negedge CLK) (0.179:0.179:0.179))
+    (HOLD D (posedge CLK) (-0.090:-0.067:-0.067))
+    (SETUP D (posedge CLK) (0.286:0.287:0.287))
+  )
+)
+(CELL
+  (CELLTYPE "DFFPOSX1")
+  (INSTANCE c0_reg_reg)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH CLK Q (0.266:0.266:0.266) (0.373:0.373:0.373))
+    )
+  )
+  (TIMINGCHECK
+    (WIDTH (posedge CLK) (0.204:0.204:0.204))
+    (WIDTH (negedge CLK) (0.179:0.179:0.179))
+    (HOLD D (posedge CLK) (-0.090:-0.067:-0.067))
+    (SETUP D (posedge CLK) (0.286:0.287:0.287))
+  )
+)
+(CELL
+  (CELLTYPE "OR2X1")
+  (INSTANCE fa3/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.308:0.308:0.308) (0.340:0.340:0.340))
+    (IOPATH B Y (0.358:0.358:0.358) (0.350:0.350:0.350))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "XOR2X1")
+  (INSTANCE fa3/u2_half_adder/U2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.290:0.293:0.293) (0.297:0.302:0.302))
+    (IOPATH B Y (0.312:0.313:0.313) (0.314:0.315:0.315))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "AND2X2")
+  (INSTANCE fa3/u2_half_adder/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.162:0.162:0.162) (0.220:0.221:0.221))
+    (IOPATH B Y (0.144:0.144:0.144) (0.228:0.228:0.228))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "XOR2X1")
+  (INSTANCE fa3/u1_half_adder/U2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.239:0.240:0.240) (0.236:0.236:0.236))
+    (IOPATH B Y (0.266:0.266:0.266) (0.265:0.266:0.266))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "AND2X2")
+  (INSTANCE fa3/u1_half_adder/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.150:0.150:0.150) (0.188:0.188:0.188))
+    (IOPATH B Y (0.145:0.145:0.145) (0.210:0.210:0.210))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "OR2X1")
+  (INSTANCE fa2/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.153:0.153:0.153) (0.147:0.147:0.147))
+    (IOPATH B Y (0.203:0.203:0.203) (0.157:0.157:0.157))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "XOR2X1")
+  (INSTANCE fa2/u2_half_adder/U2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.290:0.293:0.293) (0.297:0.302:0.302))
+    (IOPATH B Y (0.312:0.313:0.313) (0.314:0.315:0.315))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "AND2X2")
+  (INSTANCE fa2/u2_half_adder/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.162:0.162:0.162) (0.220:0.221:0.221))
+    (IOPATH B Y (0.144:0.144:0.144) (0.228:0.228:0.228))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "XOR2X1")
+  (INSTANCE fa2/u1_half_adder/U2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.239:0.240:0.240) (0.236:0.236:0.236))
+    (IOPATH B Y (0.266:0.266:0.266) (0.265:0.266:0.266))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "AND2X2")
+  (INSTANCE fa2/u1_half_adder/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.150:0.150:0.150) (0.188:0.188:0.188))
+    (IOPATH B Y (0.145:0.145:0.145) (0.210:0.210:0.210))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "OR2X1")
+  (INSTANCE fa1/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.153:0.153:0.153) (0.147:0.147:0.147))
+    (IOPATH B Y (0.203:0.203:0.203) (0.157:0.157:0.157))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "XOR2X1")
+  (INSTANCE fa1/u2_half_adder/U2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.290:0.293:0.293) (0.297:0.302:0.302))
+    (IOPATH B Y (0.312:0.313:0.313) (0.314:0.315:0.315))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "AND2X2")
+  (INSTANCE fa1/u2_half_adder/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.162:0.162:0.162) (0.220:0.221:0.221))
+    (IOPATH B Y (0.144:0.144:0.144) (0.228:0.228:0.228))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "XOR2X1")
+  (INSTANCE fa1/u1_half_adder/U2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.239:0.240:0.240) (0.236:0.236:0.236))
+    (IOPATH B Y (0.266:0.266:0.266) (0.265:0.266:0.266))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "AND2X2")
+  (INSTANCE fa1/u1_half_adder/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.150:0.150:0.150) (0.188:0.188:0.188))
+    (IOPATH B Y (0.145:0.145:0.145) (0.210:0.210:0.210))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "OR2X1")
+  (INSTANCE fa0/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.153:0.153:0.153) (0.147:0.147:0.147))
+    (IOPATH B Y (0.203:0.203:0.203) (0.157:0.157:0.157))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "XOR2X1")
+  (INSTANCE fa0/u2_half_adder/U2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.290:0.293:0.293) (0.297:0.302:0.302))
+    (IOPATH B Y (0.306:0.306:0.306) (0.303:0.303:0.303))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "AND2X2")
+  (INSTANCE fa0/u2_half_adder/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.162:0.162:0.162) (0.220:0.221:0.221))
+    (IOPATH B Y (0.144:0.144:0.144) (0.210:0.210:0.210))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "XOR2X1")
+  (INSTANCE fa0/u1_half_adder/U2)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.239:0.240:0.240) (0.236:0.236:0.236))
+    (IOPATH B Y (0.266:0.266:0.266) (0.265:0.266:0.266))
+    )
+  )
+)
+(CELL
+  (CELLTYPE "AND2X2")
+  (INSTANCE fa0/u1_half_adder/U1)
+  (DELAY
+    (ABSOLUTE
+    (IOPATH A Y (0.150:0.150:0.150) (0.188:0.188:0.188))
+    (IOPATH B Y (0.145:0.145:0.145) (0.210:0.210:0.210))
+    )
+  )
+)
+)

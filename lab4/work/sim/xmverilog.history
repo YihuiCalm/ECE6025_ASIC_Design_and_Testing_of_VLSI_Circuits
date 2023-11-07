@@ -1,0 +1,29 @@
+s1(18Oct2023:17:32:36):  xmverilog ../../src/full_adder.v ../../src/full_adder_syn.v ../../src/full_adder_tb.v ../../src/half_adder.v ../../src/osu05_stdcells.v -compile 
+s2(18Oct2023:17:32:36):  xmverilog ../../src/full_adder_tb.v +access+r 
+s3(18Oct2023:20:22:54):  ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s4(18Oct2023:20:23:10):  ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s5(18Oct2023:20:24:45):  ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s6(18Oct2023:20:24:51):  ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s7(18Oct2023:20:25:13):  ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s8(18Oct2023:20:26:13):  ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s9(18Oct2023:20:26:25):  ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s10(18Oct2023:23:33:42):  ncverilog -l nc.log +access+r ../../src/full_adder_tb_patterns.v ../../src/full_adder_syn.v ../../src/*ce 
+s11(18Oct2023:23:33:51):  ncverilog -l nc.log +access+r ../../src/full_adder_tb_patterns.v ../../src/full_adder_syn.v ../../src/*ce 
+s12(18Oct2023:23:34:31):  ncverilog -l nc.log +access+r ../../src/full_adder_tb_patterns.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s13(18Oct2023:23:37:50):  ncverilog -l nc.log +access+r ../../src/full_adder_tb_patterns.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s14(18Oct2023:23:38:27):  ncverilog -l nc.log +access+r ../../src/full_adder_tb_patterns.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ 
+s15(18Oct2023:23:58:51):  ncverilog -l nc.log +access+r ../../src/ripplecarry4_clk.v 
+s16(19Oct2023:00:09:03):  ncverilog -l nc.log +access+r ../../src/ripplecarry4_clk_tb_pattern.v ../../src/ripplecarry4_clk_syn.v ../../src/osu05_stdcells.v 
+s17(19Oct2023:00:09:24):  ncverilog -l nc.log +access+r ../../src/ripplecarry4_clk_tb_patterns.v ../../src/ripplecarry4_clk_syn.v ../../src/osu05_stdcells.v 
+s18(19Oct2023:00:11:58):  xmverilog ../../src/ripplecarry4_clk_tb_patterns.v ../../src/ripplecarry4_clk_syn.v ../../src/osu05_stdcells.v -gui 
+s19(19Oct2023:00:13:51):  xmverilog ../../src/ripplecarry4_clk_tb_patterns.v ../../src/ripplecarry4_clk_syn.v ../../src/osu05_stdcells.v -compile -gui 
+s20(19Oct2023:00:14:07):  xmverilog ../../src/ripplecarry4_clk_tb_patterns.v ../../src/ripplecarry4_clk_syn.v ../../src/osu05_stdcells.v -compile 
+s21(19Oct2023:00:14:15):  xmverilog ../../src/ripplecarry4_clk_tb_patterns.v ../../src/ripplecarry4_clk_syn.v ../../src/osu05_stdcells.v -gui 
+s22(19Oct2023:00:20:09):  ncverilog -l nc.log +access+r ../../src/ripplecarry4_clk_tb_patterns.v ../../src/ripplecarry4_clk_syn.v ../../src/osu05_stdcells.v 
+s23(19Oct2023:00:20:25):  xmverilog -gui 
+s24(19Oct2023:00:21:33):  ncverilog -l nc.log +access+r ../../src/ripplecarry4_clk_tb_patterns.v ../../src/ripplecarry4_clk_syn.v ../../src/osu05_stdcells.v 
+s25(19Oct2023:00:22:23):  xmverilog ./ripplecarry4_atpg.db -gui 
+s26(19Oct2023:00:22:55):  xmverilog -gui 
+s27(19Oct2023:00:24:13):  xmverilog ./ripplecarry4_atpg.db/ripplecarry4_atpg.db.trn -gui 
+s28(19Oct2023:00:24:58):  xmverilog ripplecarry4_atpg.db/ -gui 
+s29(19Oct2023:00:25:42):  xmverilog -gui 

@@ -1,0 +1,7 @@
+//
+// File created by:  xmverilog
+// Do not modify this file
+//
+../../src/full_adder_tb.v
+../../src/syn/full_adder_syn.v
++incdir+../../src/

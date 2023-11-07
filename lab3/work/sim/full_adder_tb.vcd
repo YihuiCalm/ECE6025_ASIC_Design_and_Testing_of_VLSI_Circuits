@@ -1,0 +1,23 @@
+$date
+    Nov  7, 2023  00:41:23
+$end
+$version
+    TOOL:	xmsim(64)	17.10-s001
+$end
+$timescale
+    1 ps
+$end
+
+$scope module full_adder_tb $end
+$var parameter 32 !    period $end
+$var parameter 32 "    delay $end
+$var parameter 32 #    finishtime $end
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+b10 #
+b10 "
+b10 !
+$end
+#18000

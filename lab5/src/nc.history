@@ -1,0 +1,7 @@
+s1(19Oct2023:22:53:01):  ncverilog -l nc.log +access+r mxtb.v ripplecarry4_clk_scan.v osu_scan.v osu05_stdcells.v 
+s2(19Oct2023:23:00:54):  xmverilog mxtb.v ripplecarry4_clk_scan.v osu_scan.v osu05_stdcells.v -sim 
+s3(19Oct2023:23:01:24):  xmverilog mxtb.v ripplecarry4_clk_scan.v osu_scan.v osu05_stdcells.v 
+s4(19Oct2023:23:02:00):  ncverilog -l nc.log +access+r maxtb.v ripplecarry4_clk_scan.v osu_scan.v osu05_stdcells.v 
+s5(19Oct2023:23:03:33):  ncverilog -l nc.log +access+r maxtb.v ripplecarry4_clk_scan.v osu_scan.v osu05_stdcells.v 
+s6(19Oct2023:23:04:04):  ncverilog -l nc.log +access+r maxtb.v ripplecarry4_clk_scan.v osu_scan.v osu05_stdcells.v 
+s7(19Oct2023:23:04:17):  ncverilog -l nc.log +access+r maxtb.v ripplecarry4_clk_scan.v osu_scan.v osu05_stdcells.v 

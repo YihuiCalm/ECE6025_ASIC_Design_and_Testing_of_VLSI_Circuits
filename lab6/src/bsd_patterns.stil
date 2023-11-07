@@ -1,0 +1,2981 @@
+STIL 1.0 {
+    Design 2005;
+}
+Header {
+    Title "Minimal STIL for design `TOP'";
+    Date "Thu Oct 19 19:38:02 2023";
+    Source "DFT Compiler O-2018.06-SP1";
+}
+Signals {
+    "A[0]" In;
+    "A[1]" In;
+    "A[2]" In;
+    "A[3]" In;
+    "B[0]" In;
+    "B[1]" In;
+    "B[2]" In;
+    "B[3]" In;
+    "CIN" In;
+    "CLK" In;
+    "RST" In;
+    "TCK" In;
+    "TDI" In;
+    "TEST_SE" In;
+    "TEST_SI" In;
+    "TMS" In;
+    "TRSTN" In;
+    "COUT" Out;
+    "SUM[0]" Out;
+    "SUM[1]" Out;
+    "SUM[2]" Out;
+    "SUM[3]" Out;
+    "TDO" Out;
+    "TEST_SO" Out;
+}
+SignalGroups  {
+    "all_inputs" = '"A[0]" + "A[1]" + "A[2]" + "A[3]" + "B[0]" + "B[1]" + "B[2]" 
+    + "B[3]" + "CIN" + "CLK" + "RST" + "TCK" + "TDI" + "TEST_SE" + "TEST_SI" + 
+    "TMS" + "TRSTN"';
+    "all_outputs" = '"COUT" + "SUM[0]" + "SUM[1]" + "SUM[2]" + "SUM[3]" + "TDO" 
+    + "TEST_SO"';
+    "all_ports" = '"all_inputs" + "all_outputs"';
+    "_pi" = '"all_inputs"';
+    "_po" = '"all_outputs"';
+}
+Timing  {
+    WaveformTable "_default_WFT_" {
+        Period '100ns';
+        Waveforms {
+            "TCK" {
+                P {
+                    '0ns' D;
+                    '45ns' U;
+                    '55ns' D;
+                }
+            }
+            "TRSTN" {
+                P {
+                    '0ns' U;
+                    '45ns' D;
+                    '55ns' U;
+                }
+            }
+            "all_inputs" {
+                0 {
+                    '0ns' D;
+                }
+            }
+            "all_inputs" {
+                1 {
+                    '0ns' U;
+                }
+            }
+            "all_inputs" {
+                Z {
+                    '0ns' Z;
+                }
+            }
+            "all_inputs" {
+                N {
+                    '0ns' N;
+                }
+            }
+            "all_outputs" {
+                X {
+                    '0ns' X;
+                    '95ns' X;
+                }
+            }
+            "all_outputs" {
+                H {
+                    '0ns' X;
+                    '95ns' H;
+                }
+            }
+            "all_outputs" {
+                T {
+                    '0ns' X;
+                    '95ns' T;
+                }
+            }
+            "all_outputs" {
+                L {
+                    '0ns' X;
+                    '95ns' L;
+                }
+            }
+        }
+    }
+}
+PatternBurst "_BSD_burst_" {
+    PatList {
+        "_BSD_block_";
+    }
+}
+PatternExec {
+    PatternBurst "_BSD_burst_";
+}
+Pattern "_BSD_block_" {
+    W "_default_WFT_";
+    C {
+        "all_inputs" = \r10 0 1000000;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 0 Async Reset Vectors Test-Logic-Reset" : V {
+        "all_inputs" = \r9 N 01PN0NN0;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 1 Async Reset Vectors Run-Test/Idle" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 2 Async Reset Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01PN0N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 3 Async Reset Vectors Capture-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 4 Async Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 5 Async Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 6 Async Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 7 Async Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 8 Async Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 9 Async Reset Vectors Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 10 Async Reset Vectors Update-DR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 11 Async Reset Vectors Run-Test/Idle" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 12 Sync Reset Vectors" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 13 Sync Reset Vectors" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 14 Sync Reset Vectors" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 15 Sync Reset Vectors" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 16 Sync Reset Vectors Test-Logic-Reset" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 17 Sync Reset Vectors Run-Test/Idle" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 18 Sync Reset Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 19 Sync Reset Vectors Capture-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 20 Sync Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 21 Sync Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 22 Sync Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 23 Sync Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 24 Sync Reset Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 25 Sync Reset Vectors Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 26 Sync Reset Vectors Update-DR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 27 Sync Reset Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 28 Sync Reset Vectors Select-IR-Scan" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 29 Sync Reset Vectors Test-Logic-Reset" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 30 TAP FSM Vectors Test-Logic-Reset" : V {
+        "all_inputs" = \r9 N 01P10N10;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 31 TAP FSM Vectors Test-Logic-Reset" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 32 TAP FSM Vectors Run-Test/Idle" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 33 TAP FSM Vectors Run-Test/Idle" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 34 TAP FSM Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 35 TAP FSM Vectors Select-IR-Scan" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 36 TAP FSM Vectors Capture-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 37 TAP FSM Vectors Exit1-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 38 TAP FSM Vectors Pause-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 39 TAP FSM Vectors Pause-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 40 TAP FSM Vectors Exit2-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 41 TAP FSM Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 42 TAP FSM Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 43 TAP FSM Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 44 TAP FSM Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 45 TAP FSM Vectors Exit1-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 46 TAP FSM Vectors Update-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 47 TAP FSM Vectors Run-Test/Idle" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 48 TAP FSM Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 49 TAP FSM Vectors Capture-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 50 TAP FSM Vectors Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 51 TAP FSM Vectors Pause-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 52 TAP FSM Vectors Pause-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 53 TAP FSM Vectors Exit2-DR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 54 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 55 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 56 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 57 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 58 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 59 TAP FSM Vectors Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 60 TAP FSM Vectors Pause-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 61 TAP FSM Vectors Pause-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 62 TAP FSM Vectors Exit2-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 63 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 64 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 65 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 66 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 67 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 68 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 69 TAP FSM Vectors Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 70 TAP FSM Vectors Update-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 71 TAP FSM Vectors Run-Test/Idle" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 72 TAP FSM Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 73 TAP FSM Vectors Select-IR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 74 TAP FSM Vectors Capture-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 75 TAP FSM Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 76 TAP FSM Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 77 TAP FSM Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 78 TAP FSM Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 79 TAP FSM Vectors Exit1-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 80 TAP FSM Vectors Pause-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 81 TAP FSM Vectors Exit2-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 82 TAP FSM Vectors Update-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 83 TAP FSM Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 84 TAP FSM Vectors Capture-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 85 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 86 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 87 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 88 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 89 TAP FSM Vectors Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 90 TAP FSM Vectors Pause-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 91 TAP FSM Vectors Exit2-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 92 TAP FSM Vectors Update-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 93 TAP FSM Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 94 TAP FSM Vectors Capture-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 95 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 96 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 97 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 98 TAP FSM Vectors Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 99 TAP FSM Vectors Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 100 TAP FSM Vectors Update-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 101 TAP FSM Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 102 TAP FSM Vectors Select-IR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 103 TAP FSM Vectors Test-Logic-Reset" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 104 TDR Vectors Test-Logic-Reset" : V {
+        "all_inputs" = \r9 N 01P00N10;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 105 TDR Vectors Run-Test/Idle" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 106 TDR Vectors Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 107 TDR Vectors Select-IR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 108 TDR Vectors Capture-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 109 TDR Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 110 TDR Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 111 TDR Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 112 TDR Vectors Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 113 TDR Vectors Exit1-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 114 TDR Vectors BYPASS Update-IR" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 115 TDR Vectors BYPASS Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P10N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 116 TDR Vectors BYPASS Capture-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 117 TDR Vectors BYPASS Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 118 TDR Vectors BYPASS Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 119 TDR Vectors BYPASS Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 120 TDR Vectors BYPASS Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 121 TDR Vectors BYPASS Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 122 TDR Vectors BYPASS Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 123 TDR Vectors BYPASS Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 124 TDR Vectors BYPASS Update-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 125 TDR Vectors BYPASS Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 126 TDR Vectors BYPASS Select-IR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 127 TDR Vectors BYPASS Capture-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 128 TDR Vectors BYPASS Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 129 TDR Vectors BYPASS Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 130 TDR Vectors BYPASS Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 131 TDR Vectors BYPASS Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 132 TDR Vectors BYPASS Exit1-IR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 133 TDR Vectors SAMPLE Update-IR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 134 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 135 TDR Vectors SAMPLE Capture-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 136 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 137 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 138 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 139 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 140 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 141 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 142 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 143 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 144 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 145 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 146 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 147 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 148 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 149 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 150 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 151 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 152 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 153 TDR Vectors SAMPLE Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 154 TDR Vectors SAMPLE Update-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 155 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 156 TDR Vectors SAMPLE Select-IR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 157 TDR Vectors SAMPLE Capture-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 158 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 159 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 160 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 161 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 162 TDR Vectors SAMPLE Exit1-IR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 163 TDR Vectors EXTEST Update-IR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 164 TDR Vectors EXTEST Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 165 TDR Vectors EXTEST Capture-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 166 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 167 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 168 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 169 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 170 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 171 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 172 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 173 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 174 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 175 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 176 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 177 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 178 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 179 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 180 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 181 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 182 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 183 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 184 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 185 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 186 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 187 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 188 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 189 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 190 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 191 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 192 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 193 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 194 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 195 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 196 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 197 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 198 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 199 TDR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 N 01PN0N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 200 TDR Vectors EXTEST Exit1-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 201 TDR Vectors EXTEST Update-DR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 202 TDR Vectors EXTEST Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 203 TDR Vectors EXTEST Select-IR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 204 TDR Vectors EXTEST Capture-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 205 TDR Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 206 TDR Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 207 TDR Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 208 TDR Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 N 01P10N01;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 209 TDR Vectors EXTEST Exit1-IR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 210 TDR Vectors SAMPLE Update-IR" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 211 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 N 01P00N11;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 212 TDR Vectors SAMPLE Capture-DR" : V {
+        "all_inputs" = \r9 N 01P00N01;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 213 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 214 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 215 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 216 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 217 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 218 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 219 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 220 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 221 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 222 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 223 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 224 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 225 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 226 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 227 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 228 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 229 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 230 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1P10001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 231 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 232 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 233 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 234 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 235 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 236 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 237 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 238 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 239 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 240 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 241 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 242 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 243 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 244 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 245 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 246 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 247 TDR Vectors SAMPLE Exit1-DR" : V {
+        "all_inputs" = \r10 0 1P00011;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 248 TDR Vectors SAMPLE Update-DR" : V {
+        "all_inputs" = \r10 0 1P00011;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 249 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r10 0 1P00011;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 250 TDR Vectors SAMPLE Capture-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 251 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 252 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 253 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 254 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 255 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 256 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 257 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 258 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 259 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 260 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 261 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 262 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 263 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 264 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 265 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 266 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 267 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 268 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 269 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 270 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 271 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 272 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 273 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 274 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 275 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 276 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 277 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 278 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 279 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 280 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 281 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 282 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 283 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 284 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 285 TDR Vectors SAMPLE Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 286 TDR Vectors SAMPLE Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 287 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 288 TDR Vectors SAMPLE Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 289 TDR Vectors SAMPLE Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 290 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 291 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 292 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 293 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 294 TDR Vectors SAMPLE Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 295 TDR Vectors PRELOAD Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 296 TDR Vectors PRELOAD Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 297 TDR Vectors PRELOAD Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 298 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 299 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 300 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 301 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 302 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 303 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 304 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 305 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 306 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 307 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 308 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 309 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 310 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 311 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 312 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 313 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 314 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 315 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 316 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 317 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 318 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 319 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 320 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 321 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 322 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 323 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 324 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 325 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 326 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 327 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 328 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 329 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 330 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 331 TDR Vectors PRELOAD Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 332 TDR Vectors PRELOAD Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 333 TDR Vectors PRELOAD Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 334 TDR Vectors PRELOAD Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 335 TDR Vectors PRELOAD Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 336 TDR Vectors PRELOAD Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 337 TDR Vectors PRELOAD Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 338 TDR Vectors PRELOAD Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 339 TDR Vectors PRELOAD Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 340 TDR Vectors PRELOAD Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 341 TDR Vectors PRELOAD Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 342 TDR Vectors SAMPLE Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 343 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 344 TDR Vectors SAMPLE Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 345 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 346 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 347 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 348 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 349 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 350 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 351 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 352 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 353 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 354 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 355 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 356 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 357 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 358 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 359 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 360 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 361 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 362 TDR Vectors SAMPLE Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 363 TDR Vectors SAMPLE Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 364 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 365 TDR Vectors SAMPLE Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 366 TDR Vectors SAMPLE Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 367 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 368 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 369 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 370 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 371 TDR Vectors SAMPLE Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 372 TDR Vectors CLAMP Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 373 TDR Vectors CLAMP Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 374 TDR Vectors CLAMP Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 375 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 376 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLHL;
+    }
+    "pattern 377 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLHL;
+    }
+    "pattern 378 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 L;
+    }
+    "pattern 379 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 L;
+    }
+    "pattern 380 TDR Vectors CLAMP Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P10111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 381 TDR Vectors CLAMP Update-DR" : V {
+        "all_inputs" = \r9 1 01P10111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 382 TDR Vectors CLAMP Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P10111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 383 TDR Vectors CLAMP Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P10111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 384 TDR Vectors CLAMP Capture-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 385 TDR Vectors CLAMP Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLHL;
+    }
+    "pattern 386 TDR Vectors CLAMP Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 L;
+    }
+    "pattern 387 TDR Vectors CLAMP Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 L;
+    }
+    "pattern 388 TDR Vectors CLAMP Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 L;
+    }
+    "pattern 389 TDR Vectors CLAMP Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 390 TDR Vectors SAMPLE Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 391 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 392 TDR Vectors SAMPLE Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 393 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 394 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 395 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 396 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 397 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 398 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 399 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 400 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 401 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 402 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 403 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 404 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 405 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 406 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 407 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 408 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 409 TDR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 410 TDR Vectors SAMPLE Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 411 TDR Vectors SAMPLE Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 412 TDR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 413 TDR Vectors SAMPLE Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 414 TDR Vectors SAMPLE Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 415 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 416 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 417 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 418 TDR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 419 TDR Vectors SAMPLE Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 420 TDR Vectors CLAMP Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 421 TDR Vectors CLAMP Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 422 TDR Vectors CLAMP Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 423 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHXH;
+    }
+    "pattern 424 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 H;
+    }
+    "pattern 425 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 H;
+    }
+    "pattern 426 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHLH;
+    }
+    "pattern 427 TDR Vectors CLAMP Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHLH;
+    }
+    "pattern 428 TDR Vectors CLAMP Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P10111;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 429 TDR Vectors CLAMP Update-DR" : V {
+        "all_inputs" = \r9 1 01P10111;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 430 TDR Vectors CLAMP Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 431 BSR Vectors CLAMP Test-Logic-Reset" : V {
+        "all_inputs" = \r9 1 01P10100;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 432 BSR Vectors CLAMP Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 433 BSR Vectors CLAMP Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P10111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 434 BSR Vectors CLAMP Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P10111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 435 BSR Vectors CLAMP Capture-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 436 BSR Vectors CLAMP Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 437 BSR Vectors CLAMP Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 438 BSR Vectors CLAMP Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 439 BSR Vectors CLAMP Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 440 BSR Vectors CLAMP Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 441 BSR Vectors SAMPLE Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 442 BSR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 443 BSR Vectors SAMPLE Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 444 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 445 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 446 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 447 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 448 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 449 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 450 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 451 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 452 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 453 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 454 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 455 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 456 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 457 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 458 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 459 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 460 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 461 BSR Vectors SAMPLE Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 462 BSR Vectors SAMPLE Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 463 BSR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 464 BSR Vectors SAMPLE Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 465 BSR Vectors SAMPLE Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 466 BSR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 467 BSR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 468 BSR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 469 BSR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 470 BSR Vectors SAMPLE Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 471 BSR Vectors EXTEST Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 472 BSR Vectors EXTEST Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 473 BSR Vectors EXTEST Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 474 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 475 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 476 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 477 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 478 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 479 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 480 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1PN0001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 481 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 482 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 483 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 484 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 485 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 486 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 487 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 488 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 489 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 490 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 491 BSR Vectors EXTEST Exit1-DR" : V {
+        "all_inputs" = \r10 0 1P00011;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 492 BSR Vectors EXTEST Update-DR" : V {
+        "all_inputs" = \r10 0 1P00011;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 493 BSR Vectors EXTEST Select-DR-Scan" : V {
+        "all_inputs" = \r10 0 1P00011;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 494 BSR Vectors EXTEST Capture-DR" : V {
+        "all_inputs" = \r10 0 1P00001;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 495 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 496 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 497 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 498 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 499 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 500 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 501 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 502 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 503 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 504 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 505 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 506 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 507 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 508 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 509 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 510 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 511 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 512 BSR Vectors EXTEST Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 513 BSR Vectors EXTEST Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 514 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 515 BSR Vectors EXTEST Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 516 BSR Vectors EXTEST Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 517 BSR Vectors EXTEST Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 518 BSR Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 519 BSR Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 520 BSR Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 521 BSR Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 522 BSR Vectors EXTEST Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 523 BSR Vectors SAMPLE Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 524 BSR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 525 BSR Vectors SAMPLE Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 526 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 527 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 528 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 529 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 530 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 531 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 532 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 533 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 534 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 535 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 536 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 537 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 538 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 539 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 540 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 541 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 542 BSR Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 543 BSR Vectors SAMPLE Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 544 BSR Vectors SAMPLE Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 545 BSR Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 546 BSR Vectors SAMPLE Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 547 BSR Vectors SAMPLE Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 548 BSR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 549 BSR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 550 BSR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 551 BSR Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 552 BSR Vectors SAMPLE Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 553 BSR Vectors EXTEST Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 554 BSR Vectors EXTEST Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 555 BSR Vectors EXTEST Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 556 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 557 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 558 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 559 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 560 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 561 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 562 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 563 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 564 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 565 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 566 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 567 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 568 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 569 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 570 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 571 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 572 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 573 BSR Vectors EXTEST Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 574 BSR Vectors EXTEST Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 575 BSR Vectors EXTEST Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 576 BSR Vectors EXTEST Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 577 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 578 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 579 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 580 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 581 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 582 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 583 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 584 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 585 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 586 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 587 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 588 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 589 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 590 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 591 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 592 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = LLLLLXL;
+    }
+    "pattern 593 BSR Vectors EXTEST Shift-DR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = \r7 L;
+    }
+    "pattern 594 BSR Vectors EXTEST Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = LLLLLTL;
+    }
+    "pattern 595 BSR Vectors EXTEST Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 596 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 597 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 598 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 599 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 600 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 601 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 602 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 603 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 604 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 605 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 606 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 607 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 608 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 609 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 610 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 611 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 612 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 613 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 614 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 615 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 616 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 617 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 618 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 619 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 620 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 621 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 622 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 623 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 624 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 625 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 626 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 627 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 628 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 629 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 630 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 631 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 632 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 633 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 634 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 635 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 636 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 637 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 638 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 639 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 640 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 641 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 642 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 643 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 644 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 645 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 646 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 647 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 648 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 649 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 650 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 651 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 652 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 653 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 654 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 655 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 656 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 657 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 658 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 659 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 660 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 661 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 662 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 663 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 664 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 665 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 666 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 667 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 668 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 669 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 670 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 671 BSR Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = HHHHHTH;
+    }
+    "pattern 672 Leakage Vectors EXTEST Test-Logic-Reset" : V {
+        "all_inputs" = \r9 1 01P00100;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 673 Leakage Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 674 Leakage Vectors EXTEST Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 675 Leakage Vectors EXTEST Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 676 Leakage Vectors EXTEST Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 677 Leakage Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 678 Leakage Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 679 Leakage Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 680 Leakage Vectors EXTEST Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 681 Leakage Vectors EXTEST Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 682 Leakage Vectors SAMPLE Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 683 Leakage Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 684 Leakage Vectors SAMPLE Capture-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 685 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 686 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 687 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 688 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 689 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 690 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 691 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 692 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 693 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 694 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 695 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 696 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 697 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 698 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 699 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 700 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = \r7 X;
+    }
+    "pattern 701 Leakage Vectors SAMPLE Shift-DR" : V {
+        "all_inputs" = \r9 1 01PN0101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 702 Leakage Vectors SAMPLE Exit1-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 703 Leakage Vectors SAMPLE Update-DR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 704 Leakage Vectors SAMPLE Select-DR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 705 Leakage Vectors SAMPLE Select-IR-Scan" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 706 Leakage Vectors SAMPLE Capture-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 707 Leakage Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXHX;
+    }
+    "pattern 708 Leakage Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P10101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 709 Leakage Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 710 Leakage Vectors SAMPLE Shift-IR" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXLX;
+    }
+    "pattern 711 Leakage Vectors SAMPLE Exit1-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 712 Leakage Vectors EXTEST Update-IR" : V {
+        "all_inputs" = \r9 1 01P00111;
+        "all_outputs" = XXXXXTX;
+    }
+    "pattern 713 Leakage Vectors EXTEST Run-Test/Idle" : V {
+        "all_inputs" = \r9 1 01P00101;
+        "all_outputs" = XXXXXTX;
+    }
+}
+

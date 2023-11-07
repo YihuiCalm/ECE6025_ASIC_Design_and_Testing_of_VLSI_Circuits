@@ -1,0 +1,700 @@
+xmverilog(64): 17.10-s001: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	xmverilog	17.10-s001: Started on Oct 19, 2023 at 21:18:53 EDT
+ncverilog
+	-l
+	nc.log
+	+access+r
+	../../src/BSD_tb.v
+	../../src/TOP_bsd.v
+	../../src/class.v
+xmverilog: *W,NCEXDEP: Executable (ncverilog) is deprecated. Use (xmverilog) instead.
+file: ../../src/BSD_tb.v
+	module worklib.TOP_test:v
+		errors: 0, warnings: 0
+file: ../../src/TOP_bsd.v
+	module worklib.halfadder_7:v
+		errors: 0, warnings: 0
+	module worklib.halfadder_6:v
+		errors: 0, warnings: 0
+	module worklib.fulladder_3:v
+		errors: 0, warnings: 0
+	module worklib.halfadder_5:v
+		errors: 0, warnings: 0
+	module worklib.halfadder_4:v
+		errors: 0, warnings: 0
+	module worklib.fulladder_2:v
+		errors: 0, warnings: 0
+	module worklib.halfadder_3:v
+		errors: 0, warnings: 0
+	module worklib.halfadder_2:v
+		errors: 0, warnings: 0
+	module worklib.fulladder_1:v
+		errors: 0, warnings: 0
+	module worklib.halfadder_1:v
+		errors: 0, warnings: 0
+	module worklib.halfadder_0:v
+		errors: 0, warnings: 0
+	module worklib.fulladder_0:v
+		errors: 0, warnings: 0
+	module worklib.ripplecarry4_clk:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_tap_uc_width4_id0_idcode_opcode1_version0_part0_man_num0_sync_mode1_tst_mode1:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_4:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_0:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_1:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_2:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_3:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_4:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_5:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_6:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_7:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2_test_8:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_2:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_1_test_0:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_1_test_1:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_1_test_2:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_1_test_3:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_1_test_4:v
+		errors: 0, warnings: 0
+	module worklib.TOP_DW_bc_1:v
+		errors: 0, warnings: 0
+	module worklib.TOP_Decoder_inst_design:v
+		errors: 0, warnings: 0
+	module worklib.TOP_BSR_mode_inst_design:v
+		errors: 0, warnings: 0
+	module worklib.TOP_BSR_top_inst_design:v
+		errors: 0, warnings: 0
+	module worklib.TOP:v
+		errors: 0, warnings: 0
+file: ../../src/class.v
+	module worklib.AN2:v
+		errors: 0, warnings: 0
+	module worklib.AN2I:v
+		errors: 0, warnings: 0
+	module worklib.OR2:v
+		errors: 0, warnings: 0
+	module worklib.OR2I:v
+		errors: 0, warnings: 0
+	module worklib.IV:v
+		errors: 0, warnings: 0
+	module worklib.IVI:v
+		errors: 0, warnings: 0
+	module worklib.IVP:v
+		errors: 0, warnings: 0
+	module worklib.IVA:v
+		errors: 0, warnings: 0
+	module worklib.IVAP:v
+		errors: 0, warnings: 0
+	module worklib.IVDA:v
+		errors: 0, warnings: 0
+	module worklib.IVDAP:v
+		errors: 0, warnings: 0
+	module worklib.B5I:v
+		errors: 0, warnings: 0
+	module worklib.B5IP:v
+		errors: 0, warnings: 0
+	module worklib.B4I:v
+		errors: 0, warnings: 0
+	module worklib.B4IP:v
+		errors: 0, warnings: 0
+	module worklib.ND2:v
+		errors: 0, warnings: 0
+	module worklib.ND2I:v
+		errors: 0, warnings: 0
+	module worklib.ND2P:v
+		errors: 0, warnings: 0
+	module worklib.NR2:v
+		errors: 0, warnings: 0
+	module worklib.NR2I:v
+		errors: 0, warnings: 0
+	module worklib.NR2P:v
+		errors: 0, warnings: 0
+	module worklib.EN:v
+		errors: 0, warnings: 0
+	module worklib.ENI:v
+		errors: 0, warnings: 0
+	module worklib.EO:v
+		errors: 0, warnings: 0
+	module worklib.EOI:v
+		errors: 0, warnings: 0
+	module worklib.ND3:v
+		errors: 0, warnings: 0
+	module worklib.ND3P:v
+		errors: 0, warnings: 0
+	module worklib.NR3:v
+		errors: 0, warnings: 0
+	module worklib.NR3P:v
+		errors: 0, warnings: 0
+	module worklib.AN3:v
+		errors: 0, warnings: 0
+	module worklib.OR3:v
+		errors: 0, warnings: 0
+	module worklib.ND4:v
+		errors: 0, warnings: 0
+	module worklib.ND4P:v
+		errors: 0, warnings: 0
+	module worklib.NR4:v
+		errors: 0, warnings: 0
+	module worklib.ND5:v
+		errors: 0, warnings: 0
+	module worklib.AO6:v
+		errors: 0, warnings: 0
+	module worklib.AO6P:v
+		errors: 0, warnings: 0
+	primitive worklib.p_ao6:v
+		errors: 0, warnings: 0
+	module worklib.AO7:v
+		errors: 0, warnings: 0
+	module worklib.AO7P:v
+		errors: 0, warnings: 0
+	primitive worklib.p_ao7:v
+		errors: 0, warnings: 0
+	module worklib.AO2:v
+		errors: 0, warnings: 0
+	module worklib.AO2P:v
+		errors: 0, warnings: 0
+	primitive worklib.p_ao2:v
+		errors: 0, warnings: 0
+	module worklib.AO4:v
+		errors: 0, warnings: 0
+	module worklib.AO4P:v
+		errors: 0, warnings: 0
+	primitive worklib.p_ao4:v
+		errors: 0, warnings: 0
+	module worklib.AO1:v
+		errors: 0, warnings: 0
+	primitive worklib.p_ao1:v
+		errors: 0, warnings: 0
+	module worklib.AO3:v
+		errors: 0, warnings: 0
+	primitive worklib.p_ao3:v
+		errors: 0, warnings: 0
+	module worklib.AN2P:v
+		errors: 0, warnings: 0
+	module worklib.AN3P:v
+		errors: 0, warnings: 0
+	module worklib.AN4:v
+		errors: 0, warnings: 0
+	module worklib.AN4P:v
+		errors: 0, warnings: 0
+	module worklib.OR2P:v
+		errors: 0, warnings: 0
+	module worklib.OR3P:v
+		errors: 0, warnings: 0
+	module worklib.OR4:v
+		errors: 0, warnings: 0
+	module worklib.OR4P:v
+		errors: 0, warnings: 0
+	module worklib.MUX21H:v
+		errors: 0, warnings: 0
+	primitive worklib.p_mux21h:v
+		errors: 0, warnings: 0
+	module worklib.NR5:v
+		errors: 0, warnings: 0
+	module worklib.ND6:v
+		errors: 0, warnings: 0
+	module worklib.NR6:v
+		errors: 0, warnings: 0
+	module worklib.ND8:v
+		errors: 0, warnings: 0
+	module worklib.NR8:v
+		errors: 0, warnings: 0
+	module worklib.EON1:v
+		errors: 0, warnings: 0
+	primitive worklib.p_eon1:v
+		errors: 0, warnings: 0
+	module worklib.EO1:v
+		errors: 0, warnings: 0
+	primitive worklib.p_eo1:v
+		errors: 0, warnings: 0
+	module worklib.ND5P:v
+		errors: 0, warnings: 0
+	module worklib.NR5P:v
+		errors: 0, warnings: 0
+	module worklib.ND6P:v
+		errors: 0, warnings: 0
+	module worklib.NR6P:v
+		errors: 0, warnings: 0
+	module worklib.ND8P:v
+		errors: 0, warnings: 0
+	module worklib.NR8P:v
+		errors: 0, warnings: 0
+	module worklib.NR16:v
+		errors: 0, warnings: 0
+	module worklib.NR16P:v
+		errors: 0, warnings: 0
+	module worklib.ENP:v
+		errors: 0, warnings: 0
+	module worklib.EOP:v
+		errors: 0, warnings: 0
+	module worklib.EO1P:v
+		errors: 0, warnings: 0
+	module worklib.EON1P:v
+		errors: 0, warnings: 0
+	module worklib.AO1P:v
+		errors: 0, warnings: 0
+	module worklib.AO3P:v
+		errors: 0, warnings: 0
+	module worklib.MUX21HP:v
+		errors: 0, warnings: 0
+	module worklib.MUX21L:v
+		errors: 0, warnings: 0
+	module worklib.MUX21LP:v
+		errors: 0, warnings: 0
+	primitive worklib.p_mux21l:v
+		errors: 0, warnings: 0
+	module worklib.MUX31L:v
+		errors: 0, warnings: 0
+	module worklib.MUX31LP:v
+		errors: 0, warnings: 0
+	primitive worklib.p_mux31l:v
+		errors: 0, warnings: 0
+	module worklib.MUX21LA:v
+		errors: 0, warnings: 0
+	primitive worklib.p_mux21la:v
+		errors: 0, warnings: 0
+	module worklib.AO5:v
+		errors: 0, warnings: 0
+	module worklib.AO5P:v
+		errors: 0, warnings: 0
+	primitive worklib.p_ao5:v
+		errors: 0, warnings: 0
+	module worklib.EN3:v
+		errors: 0, warnings: 0
+	module worklib.EN3P:v
+		errors: 0, warnings: 0
+	module worklib.EO3:v
+		errors: 0, warnings: 0
+	module worklib.EO3P:v
+		errors: 0, warnings: 0
+	module worklib.MUX21LAP:v
+		errors: 0, warnings: 0
+	module worklib.NR4P:v
+		errors: 0, warnings: 0
+	module worklib.FD1:v
+		errors: 0, warnings: 0
+	primitive worklib.p_dreg:v
+		errors: 0, warnings: 0
+	module worklib.FD1S:v
+		errors: 0, warnings: 0
+	primitive worklib.p_dregscan:v
+		errors: 0, warnings: 0
+	module worklib.FD2:v
+		errors: 0, warnings: 0
+	primitive worklib.p_dregclear:v
+		errors: 0, warnings: 0
+	module worklib.FD2S:v
+		errors: 0, warnings: 0
+	primitive worklib.p_dregscanclear:v
+		errors: 0, warnings: 0
+	module worklib.FD4:v
+		errors: 0, warnings: 0
+	primitive worklib.p_dregset:v
+		errors: 0, warnings: 0
+	module worklib.FD4S:v
+		errors: 0, warnings: 0
+	primitive worklib.p_dregscanset:v
+		errors: 0, warnings: 0
+	module worklib.B2I:v
+		errors: 0, warnings: 0
+	module worklib.B2IP:v
+		errors: 0, warnings: 0
+	module worklib.B3I:v
+		errors: 0, warnings: 0
+	module worklib.B3IP:v
+		errors: 0, warnings: 0
+	module worklib.BTS5:v
+		errors: 0, warnings: 0
+	module worklib.LD1:v
+		errors: 0, warnings: 0
+	primitive worklib.p_latch:v
+		errors: 0, warnings: 0
+	module worklib.IBUF1:v
+		errors: 0, warnings: 0
+	module worklib.IBUF2:v
+		errors: 0, warnings: 0
+	module worklib.IBUF3:v
+		errors: 0, warnings: 0
+	module worklib.IBUF4:v
+		errors: 0, warnings: 0
+	module worklib.IBUF5:v
+		errors: 0, warnings: 0
+	module worklib.OBUF1:v
+		errors: 0, warnings: 0
+	module worklib.OBUF2:v
+		errors: 0, warnings: 0
+	module worklib.BIDI:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+  IVDAP U6 ( .A(a[1]), .Z(n30) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,171|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,76): Y
+
+  IVDAP U7 ( .A(a[2]), .Z(n32) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,172|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,76): Y
+
+  IVDA U8 ( .A(a[3]), .Z(n34) );
+        |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,173|8): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,69): Y
+
+  IVDAP U9 ( .A(a[0]), .Z(n36) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,174|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,76): Y
+
+  IVDA U10 ( .A(b[1]), .Z(n38) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,175|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,69): Y
+
+  IVDA U11 ( .A(b[2]), .Z(n40) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,176|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,69): Y
+
+  IVDA U12 ( .A(b[3]), .Z(n42) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,177|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,69): Y
+
+  IVDA U13 ( .A(b[0]), .Z(n44) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,178|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,69): Y
+
+  IVDA U14 ( .A(cin), .Z(n46) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,179|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,69): Y
+
+  IVDA U15 ( .A(rst), .Z(n48) );
+         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,180|9): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,69): Y
+
+  TOP_DW_tap_uc_width4_id0_idcode_opcode1_version0_part0_man_num0_sync_mode1_tst_mode1 TOP_DW_tap_inst ( 
+                                                                                                     |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,1024|101): 2 output ports were not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,188): clock_dr
+xmelab: (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,188): update_dr
+
+  FD2 U1_current_state_reg_1_ ( .D(U1_next_state[1]), .CP(tck), .CD(trst_n), 
+                            |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,430|28): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): QN
+
+  FD2 U1_current_state_reg_12_ ( .D(U1_next_state[12]), .CP(tck), .CD(trst_n), 
+                             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,438|29): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): QN
+
+  FD2 U1_current_state_reg_9_ ( .D(U1_next_state[9]), .CP(tck), .CD(trst_n), 
+                            |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,440|28): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): QN
+
+  FD2 U1_dr_sel_int_reg ( .D(U1_dr_sel_int_next), .CP(tck), .CD(trst_n), .Q(
+                      |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,456|22): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): QN
+
+  FD1 U8 ( .D(tdo_ffin), .CP(tck_n), .Q(tdo) );
+       |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,458|7): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U6_U4 ( .D(U6_ffin), .CP(tck), .Q(byp_so) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,459|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U5_U1_3_U3 ( .D(U5_U1_3_ffin), .CP(tck), .Q(U5_instruction_shift_3_) );
+               |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,460|15): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U5_U1_2_U3 ( .D(U5_U1_2_ffin), .CP(tck), .Q(U5_instruction_shift_2_) );
+               |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,461|15): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U5_U1_1_U3 ( .D(U5_U1_1_ffin), .CP(tck), .Q(U5_instruction_shift_1_) );
+               |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,462|15): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U5_U1_0_U3 ( .D(U5_U1_0_ffin), .CP(tck), .Q(instr_so) );
+               |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,463|15): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD2 U5_U3_3 ( .D(U5_ff_d[3]), .CP(tck_n), .CD(U5_rst_n), .QN(instructions[3]) );
+            |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,464|12): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): Q
+
+  FD2 U5_U3_2 ( .D(U5_ff_d[2]), .CP(tck_n), .CD(U5_rst_n), .QN(instructions[2]) );
+            |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,465|12): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): Q
+
+  FD2 U5_U3_1 ( .D(U5_ff_d[1]), .CP(tck_n), .CD(U5_rst_n), .QN(instructions[1]) );
+            |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,466|12): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): Q
+
+  FD2 U5_U3_0 ( .D(U5_ff_d[0]), .CP(tck_n), .CD(U5_rst_n), .QN(instructions[0]) );
+            |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,467|12): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): Q
+
+  FD2 U1_U9 ( .D(tap_state[0]), .CP(tck_n), .CD(trst_n), .QN(U1_net41) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,468|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): Q
+
+  FD2 U1_U8 ( .D(tap_state[11]), .CP(tck_n), .CD(trst_n), .Q(shift_ir_int) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,469|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): QN
+
+  FD2 U1_U7 ( .D(tap_state[4]), .CP(tck_n), .CD(trst_n), .Q(shift_dr) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,470|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,802): QN
+
+  B2IP u_cell_584 ( .A(tap_state[8]), .Z2(sync_update_dr) );
+                |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,471|16): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,945): Z1
+
+  TOP_DW_bc_4 TOP_CLK_bsr1 ( .capture_clk(TOP_inv_in), .capture_en(
+                         |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,898|25): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,476): data_out
+
+  B2IP u_cell_601 ( .A(data_in), .Z2(data_out) );
+                |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,484|16): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,945): Z1
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,503|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,504|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,523|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,524|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,543|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,544|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,563|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,564|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,583|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,584|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,603|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,604|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,623|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,624|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,643|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,644|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,663|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,664|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,683|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(update_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,684|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,703|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(temp_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,704|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,723|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(temp_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,724|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,743|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(temp_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,744|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,763|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(temp_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,764|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,783|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(temp_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,784|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U1_U3 ( .D(U1_U1_ffin), .CP(capture_clk), .Q(so) );
+             |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,803|13): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  FD1 U1_U3 ( .D(U1_ffin), .CP(update_clk), .Q(temp_out) );
+          |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,804|10): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,745): QN
+
+  B2IP u_cell_833 ( .A(SAMPLE), .Z2(PRELOAD) );
+                |
+xmelab: *W,CUVWSP (/home/ead/yihui/ece6250/lab6/src/TOP_bsd.v,838|16): 1 output port was not connected:
+xmelab: (/home/ead/yihui/ece6250/lab6/src/class.v,945): Z1
+
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.TOP_BSR_top_inst_design:v <0x1ef6e753>
+			streams:   0, words:     0
+		worklib.TOP:v <0x0838ddef>
+			streams:   5, words:   906
+		worklib.TOP_test:v <0x7468e935>
+			streams:  10, words: 14138
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                590     145
+		UDPs:                   173      20
+		Primitives:             466      10
+		Registers:                7      14
+		Scalar wires:            37       -
+		Expanded wires:           3       1
+		Vectored wires:           5       -
+		Named events:             1       1
+		Always blocks:            1       1
+		Initial blocks:           2       2
+		Cont. assignments:        2       3
+		Pseudo assignments:       5       5
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.TOP_test:v
+Loading snapshot worklib.TOP_test:v .................... Done
+xcelium> source /apps/vlsi_2018/cadence/XCELIUM1710/tools/xcelium/files/xmsimrc
+xcelium> run
+TEST COMPLETED WITH NO ERRORS
+
+/home/ead/yihui/ece6250/lab6/src/BSD_tb.v:6781    $finish(0);
+xcelium> exit
+TOOL:	xmverilog	17.10-s001: Exiting on Oct 19, 2023 at 21:18:55 EDT  (total: 00:00:02)

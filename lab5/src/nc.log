@@ -1,0 +1,34 @@
+xmverilog(64): 17.10-s001: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	xmverilog	17.10-s001: Started on Oct 19, 2023 at 23:04:16 EDT
+ncverilog
+	-l
+	nc.log
+	+access+r
+	maxtb.v
+	ripplecarry4_clk_scan.v
+	osu_scan.v
+	osu05_stdcells.v
+xmverilog: *W,NCEXDEP: Executable (ncverilog) is deprecated. Use (xmverilog) instead.
+Loading snapshot worklib.ripplecarry4_clk_test:v .................... Done
+xcelium> source /apps/vlsi_2018/cadence/XCELIUM1710/tools/xcelium/files/xmsimrc
+xcelium> run
+#############################################################################
+ MAX TB Version O-2018.06-SP1
+ Test Protocol File generated from original file "ripplecarry4_clk.stil"
+ STIL file version: 1.0
+#############################################################################
+
+xmsim: *W,PRPASZ: Packed array at "ripplecarry4_clk_test.TDATA_FILE" of 8192 bits exceeds limit of 4096 - not probed
+ Use 'probe -create -packed 8192 ripplecarry4_clk_test.TDATA_FILE' or 'setenv SHM_PACKED_LIMIT 8192' to adjust limit.
+xmsim: *W,PRPASZ: Packed array at "ripplecarry4_clk_test.diag_file" of 8192 bits exceeds limit of 4096 - not probed
+ Use 'probe -create -packed 8192 ripplecarry4_clk_test.diag_file' or 'setenv SHM_PACKED_LIMIT 8192' to adjust limit.
+XTB: Starting parallel simulation of 14 patterns
+XTB: Using 0 serial shifts
+XTB: Begin parallel scan load for pattern 0 (T=200.00 ns, V=3)
+XTB: Begin parallel scan load for pattern 5 (T=1700.00 ns, V=18)
+XTB: Begin parallel scan load for pattern 10 (T=3200.00 ns, V=33)
+XTB: Simulation of 14 patterns completed with 0 mismatches (time: 4600.00 ns, cycles: 46)
+
+./maxtb.v:1471      $finish(0);
+xcelium> exit
+TOOL:	xmverilog	17.10-s001: Exiting on Oct 19, 2023 at 23:04:17 EDT  (total: 00:00:01)

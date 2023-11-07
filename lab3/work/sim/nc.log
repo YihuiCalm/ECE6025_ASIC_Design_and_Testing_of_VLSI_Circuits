@@ -1,0 +1,87 @@
+xmverilog(64): 17.10-s001: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	xmverilog	17.10-s001: Started on Oct 19, 2023 at 13:36:41 EDT
+ncverilog
+	-l
+	nc.log
+	+access+r
+	../../src/syn/full_adder_syn.v
+	../../src/full_adder_tb.v
+	../../src/syn/osu05_stdcells.v
+	+incdir+../../src/
+xmverilog: *W,NCEXDEP: Executable (ncverilog) is deprecated. Use (xmverilog) instead.
+Recompiling... reason: unable to stat '/.//home/ead/yihui/ece6250/lab2/src/osu05_stdcells.v'.
+file: ../../src/syn/full_adder_syn.v
+	module worklib.half_adder_1:v
+		errors: 0, warnings: 0
+	module worklib.half_adder_0:v
+		errors: 0, warnings: 0
+	module worklib.full_adder:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+     $hold (negedge D, negedge CLK, thold_negedge$D$CLK,  NOTIFIER);
+                                                      |
+xmelab: *W,CUNGL1 (/home/ead/yihui/ece6250/lab3/src/syn/osu05_stdcells.v,260|54): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (DFFNEGX1).
+     $hold (posedge D, negedge CLK, thold_posedge$D$CLK,  NOTIFIER);
+                                                      |
+xmelab: *W,CUNGL1 (/home/ead/yihui/ece6250/lab3/src/syn/osu05_stdcells.v,262|54): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (DFFNEGX1).
+     $hold (negedge D, posedge CLK, thold_negedge$D$CLK,  NOTIFIER);
+                                                      |
+xmelab: *W,CUNGL1 (/home/ead/yihui/ece6250/lab3/src/syn/osu05_stdcells.v,298|54): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (DFFPOSX1).
+     $hold (posedge D, posedge CLK, thold_posedge$D$CLK,  NOTIFIER);
+                                                      |
+xmelab: *W,CUNGL1 (/home/ead/yihui/ece6250/lab3/src/syn/osu05_stdcells.v,300|54): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (DFFPOSX1).
+     $recovery(posedge R, posedge CLK &&& \D&S , trec$R$CLK, NOTIFIER);
+                                                          |
+xmelab: *W,CUNGL1 (/home/ead/yihui/ece6250/lab3/src/syn/osu05_stdcells.v,361|58): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (DFFSR).
+     $hold (negedge D, negedge CLK, thold_negedge$D$CLK,  NOTIFIER);
+                                                      |
+xmelab: *W,CUNGL1 (/home/ead/yihui/ece6250/lab3/src/syn/osu05_stdcells.v,573|54): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (LATCH).
+     $hold (posedge D, negedge CLK, thold_posedge$D$CLK,  NOTIFIER);
+                                                      |
+xmelab: *W,CUNGL1 (/home/ead/yihui/ece6250/lab3/src/syn/osu05_stdcells.v,575|54): Negative timing check limit not allowed in a 1 limit timing check, setting to 0 in instance (LATCH).
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.LATCH:v <0x464bbb65>
+			streams:   0, words:     0
+		worklib.DFFSR:v <0x258fae03>
+			streams:   0, words:     0
+		worklib.DFFPOSX1:v <0x407595eb>
+			streams:   0, words:     0
+		worklib.DFFNEGX1:v <0x0370794d>
+			streams:   0, words:     0
+		worklib.full_adder_tb:v <0x0acba5ac>
+			streams:   6, words:  7598
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                50      43
+		UDPs:                    5       4
+		Primitives:             78       6
+		Timing outputs:         45      11
+		Registers:               9      12
+		Scalar wires:           55       -
+		Always blocks:           1       1
+		Initial blocks:          2       2
+		Pseudo assignments:      3       3
+		Timing checks:          31       -
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.full_adder_tb:v
+Loading snapshot worklib.full_adder_tb:v .................... Done
+xcelium> source /apps/vlsi_2018/cadence/XCELIUM1710/tools/xcelium/files/xmsimrc
+xcelium> run
+================TESTBENCH==============
+PASS: a=0 b=0 ci=1 s=1 co=0    @ 3000
+PASS: a=0 b=1 ci=0 s=1 co=0    @ 5000
+PASS: a=0 b=1 ci=1 s=0 co=1    @ 7000
+PASS: a=1 b=0 ci=0 s=1 co=0    @ 9000
+PASS: a=1 b=0 ci=1 s=0 co=1    @11000
+PASS: a=1 b=1 ci=0 s=0 co=1    @13000
+PASS: a=1 b=1 ci=1 s=1 co=1    @15000
+PASS: a=0 b=0 ci=0 s=0 co=0    @17000
+=================FINISH================
+Simulation complete via $finish(1) at time 18 NS + 0
+/home/ead/yihui/ece6250/lab3/src/full_adder_tb.v:52         $finish;
+xcelium> exit
+TOOL:	xmverilog	17.10-s001: Exiting on Oct 19, 2023 at 13:36:42 EDT  (total: 00:00:01)

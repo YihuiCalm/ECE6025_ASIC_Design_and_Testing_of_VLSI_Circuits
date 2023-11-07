@@ -1,0 +1,26 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(18Oct2023:17:32:36):( xmverilog ../../src/full_adder.v ../../src/full_adder_syn.v ../../src/full_adder_tb.v ../../src/half_adder.v ../../src/osu05_stdcells.v -compile )
+s2::(18Oct2023:17:32:36):( xmverilog ../../src/full_adder_tb.v +access+r )
+s3::(18Oct2023:20:22:54):( ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ )
+s4::(18Oct2023:20:23:10):( ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ )
+s5::(18Oct2023:20:24:45):( ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ )
+s6::(18Oct2023:20:24:51):( ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ )
+s7::(18Oct2023:20:25:13):( ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ )
+s8::(18Oct2023:20:26:13):( ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ )
+s9::(18Oct2023:20:26:25):( ncverilog -l nc.log +access+r ../../src/full_adder_tb.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ )
+s10::(18Oct2023:23:32:13):( ncverilog -l nc.log +access+r ../../src/*tb_patterns.v ../../src/full_adder_syn.v ../../src/osu05_stdcells.v +incdir+../../src/ )
+s11::(19Oct2023:13:35:11):( ncverilog -l nc.log +access+r ../../src/syn/full_adder_syn.v ../../src/full_adder_tb.v ../../src/syn/osu05_stdcells.v )
+s12::(19Oct2023:13:35:38):( ncverilog -l nc.log +access+r ../../src/syn/full_adder_syn.v ../../src/full_adder_tb.v ../../src/syn/osu05_stdcells.v +incdir+../../src/ )
+s13::(19Oct2023:13:36:41):( ncverilog -l nc.log +access+r ../../src/syn/full_adder_syn.v ../../src/full_adder_tb.v ../../src/syn/osu05_stdcells.v +incdir+../../src/ )
+s14::(07Nov2023:00:26:30):( xmverilog ../../src/full_adder_tb.v ../../src/syn/full_adder_syn.v -sim )
+s15::(07Nov2023:00:26:34):( xmverilog ../../src/full_adder_tb.v ../../src/syn/full_adder_syn.v )
+s16::(07Nov2023:00:27:02):( xmverilog ../../src/full_adder_tb.v ../../src/syn/full_adder_syn.v ../../src/globals.v )
+s17::(07Nov2023:00:28:00):( xmverilog ../../src/full_adder_tb.v ../../src/syn/full_adder_syn.v +incdir+../../src/globals.v )
+s18::(07Nov2023:00:28:15):( xmverilog ../../src/full_adder_tb.v ../../src/syn/full_adder_syn.v +incdir+../../src/ )
+s19::(07Nov2023:00:30:43):( xmverilog ../../src/syn/full_adder_syn.v )
+s20::(07Nov2023:00:30:57):( xmverilog ../../src/syn/full_adder_syn.v +incdir+../../src/ )
+s21::(07Nov2023:00:40:22):( xmverilog ../../src/full_adder_tb.v ../../src/syn/full_adder_syn.v +incdir+../../src/ )
+s22::(07Nov2023:00:41:12):( xmverilog ../../src/full_adder_tb.v ../../src/syn/full_adder_syn.v +incdir+../../src/ )

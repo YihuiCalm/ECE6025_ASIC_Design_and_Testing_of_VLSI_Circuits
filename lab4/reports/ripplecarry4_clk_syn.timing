@@ -1,0 +1,372 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nworst 5
+        -max_paths 5
+        -sort_by group
+Design : ripplecarry4_clk
+Version: O-2018.06-SP1
+Date   : Thu Oct 19 14:02:09 2023
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: a[3] (input port clocked by clk)
+  Endpoint: cout (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  input external delay                     2.00       2.30 f
+  a[3] (in)                                0.07       2.37 f
+  U19/Y (INVX2)                            0.08       2.45 r
+  U20/Y (INVX2)                            0.12       2.57 f
+  fa3/a (full_adder_0)                     0.00       2.57 f
+  fa3/u1_half_adder/a (half_adder_1)       0.00       2.57 f
+  fa3/u1_half_adder/U2/Y (XOR2X1)          0.27       2.84 f
+  fa3/u1_half_adder/s (half_adder_1)       0.00       2.84 f
+  fa3/u2_half_adder/b (half_adder_0)       0.00       2.84 f
+  fa3/u2_half_adder/U1/Y (AND2X2)          0.22       3.06 f
+  fa3/u2_half_adder/co (half_adder_0)      0.00       3.06 f
+  fa3/U1/Y (OR2X1)                         0.35       3.41 f
+  fa3/co (full_adder_0)                    0.00       3.41 f
+  cout (out)                               0.00       3.41 f
+  data arrival time                                   3.41
+
+  clock clk (rise edge)                   40.00      40.00
+  clock network delay (ideal)              0.30      40.30
+  output external delay                   -1.65      38.65
+  data required time                                 38.65
+  -----------------------------------------------------------
+  data required time                                 38.65
+  data arrival time                                  -3.41
+  -----------------------------------------------------------
+  slack (MET)                                        35.24
+
+
+  Startpoint: a[3] (input port clocked by clk)
+  Endpoint: cout (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  input external delay                     2.00       2.30 r
+  a[3] (in)                                0.06       2.36 r
+  U19/Y (INVX2)                            0.07       2.43 f
+  U20/Y (INVX2)                            0.11       2.54 r
+  fa3/a (full_adder_0)                     0.00       2.54 r
+  fa3/u1_half_adder/a (half_adder_1)       0.00       2.54 r
+  fa3/u1_half_adder/U2/Y (XOR2X1)          0.27       2.81 f
+  fa3/u1_half_adder/s (half_adder_1)       0.00       2.81 f
+  fa3/u2_half_adder/b (half_adder_0)       0.00       2.81 f
+  fa3/u2_half_adder/U1/Y (AND2X2)          0.22       3.03 f
+  fa3/u2_half_adder/co (half_adder_0)      0.00       3.03 f
+  fa3/U1/Y (OR2X1)                         0.35       3.38 f
+  fa3/co (full_adder_0)                    0.00       3.38 f
+  cout (out)                               0.00       3.38 f
+  data arrival time                                   3.38
+
+  clock clk (rise edge)                   40.00      40.00
+  clock network delay (ideal)              0.30      40.30
+  output external delay                   -1.65      38.65
+  data required time                                 38.65
+  -----------------------------------------------------------
+  data required time                                 38.65
+  data arrival time                                  -3.38
+  -----------------------------------------------------------
+  slack (MET)                                        35.27
+
+
+  Startpoint: b[3] (input port clocked by clk)
+  Endpoint: cout (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  input external delay                     2.00       2.30 f
+  b[3] (in)                                0.07       2.37 f
+  U11/Y (INVX2)                            0.08       2.45 r
+  U12/Y (INVX2)                            0.11       2.56 f
+  fa3/b (full_adder_0)                     0.00       2.56 f
+  fa3/u1_half_adder/b (half_adder_1)       0.00       2.56 f
+  fa3/u1_half_adder/U2/Y (XOR2X1)          0.24       2.80 f
+  fa3/u1_half_adder/s (half_adder_1)       0.00       2.80 f
+  fa3/u2_half_adder/b (half_adder_0)       0.00       2.80 f
+  fa3/u2_half_adder/U1/Y (AND2X2)          0.22       3.02 f
+  fa3/u2_half_adder/co (half_adder_0)      0.00       3.02 f
+  fa3/U1/Y (OR2X1)                         0.35       3.37 f
+  fa3/co (full_adder_0)                    0.00       3.37 f
+  cout (out)                               0.00       3.37 f
+  data arrival time                                   3.37
+
+  clock clk (rise edge)                   40.00      40.00
+  clock network delay (ideal)              0.30      40.30
+  output external delay                   -1.65      38.65
+  data required time                                 38.65
+  -----------------------------------------------------------
+  data required time                                 38.65
+  data arrival time                                  -3.37
+  -----------------------------------------------------------
+  slack (MET)                                        35.28
+
+
+  Startpoint: a[3] (input port clocked by clk)
+  Endpoint: cout (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  input external delay                     2.00       2.30 f
+  a[3] (in)                                0.07       2.37 f
+  U19/Y (INVX2)                            0.08       2.45 r
+  U20/Y (INVX2)                            0.12       2.57 f
+  fa3/a (full_adder_0)                     0.00       2.57 f
+  fa3/u1_half_adder/a (half_adder_1)       0.00       2.57 f
+  fa3/u1_half_adder/U2/Y (XOR2X1)          0.27       2.84 r
+  fa3/u1_half_adder/s (half_adder_1)       0.00       2.84 r
+  fa3/u2_half_adder/b (half_adder_0)       0.00       2.84 r
+  fa3/u2_half_adder/U1/Y (AND2X2)          0.16       3.00 r
+  fa3/u2_half_adder/co (half_adder_0)      0.00       3.00 r
+  fa3/U1/Y (OR2X1)                         0.36       3.36 r
+  fa3/co (full_adder_0)                    0.00       3.36 r
+  cout (out)                               0.00       3.36 r
+  data arrival time                                   3.36
+
+  clock clk (rise edge)                   40.00      40.00
+  clock network delay (ideal)              0.30      40.30
+  output external delay                   -1.65      38.65
+  data required time                                 38.65
+  -----------------------------------------------------------
+  data required time                                 38.65
+  data arrival time                                  -3.36
+  -----------------------------------------------------------
+  slack (MET)                                        35.29
+
+
+  Startpoint: b[3] (input port clocked by clk)
+  Endpoint: cout (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  input external delay                     2.00       2.30 r
+  b[3] (in)                                0.06       2.36 r
+  U11/Y (INVX2)                            0.07       2.43 f
+  U12/Y (INVX2)                            0.10       2.53 r
+  fa3/b (full_adder_0)                     0.00       2.53 r
+  fa3/u1_half_adder/b (half_adder_1)       0.00       2.53 r
+  fa3/u1_half_adder/U2/Y (XOR2X1)          0.24       2.77 f
+  fa3/u1_half_adder/s (half_adder_1)       0.00       2.77 f
+  fa3/u2_half_adder/b (half_adder_0)       0.00       2.77 f
+  fa3/u2_half_adder/U1/Y (AND2X2)          0.22       2.99 f
+  fa3/u2_half_adder/co (half_adder_0)      0.00       2.99 f
+  fa3/U1/Y (OR2X1)                         0.35       3.34 f
+  fa3/co (full_adder_0)                    0.00       3.34 f
+  cout (out)                               0.00       3.34 f
+  data arrival time                                   3.34
+
+  clock clk (rise edge)                   40.00      40.00
+  clock network delay (ideal)              0.30      40.30
+  output external delay                   -1.65      38.65
+  data required time                                 38.65
+  -----------------------------------------------------------
+  data required time                                 38.65
+  data arrival time                                  -3.34
+  -----------------------------------------------------------
+  slack (MET)                                        35.31
+
+
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -nworst 5
+        -max_paths 5
+        -sort_by group
+Design : ripplecarry4_clk
+Version: O-2018.06-SP1
+Date   : Thu Oct 19 14:02:09 2023
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: c0_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: c1_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c0_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  c0_reg_reg/Q (DFFPOSX1)                  0.27       0.57 r
+  fa1/ci (full_adder_2)                    0.00       0.57 r
+  fa1/u2_half_adder/a (half_adder_4)       0.00       0.57 r
+  fa1/u2_half_adder/U1/Y (AND2X2)          0.14       0.71 r
+  fa1/u2_half_adder/co (half_adder_4)      0.00       0.71 r
+  fa1/U1/Y (OR2X1)                         0.20       0.91 r
+  fa1/co (full_adder_2)                    0.00       0.91 r
+  c1_reg_reg/D (DFFPOSX1)                  0.00       0.91 r
+  data arrival time                                   0.91
+
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c1_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  library hold time                       -0.09       0.21
+  data required time                                  0.21
+  -----------------------------------------------------------
+  data required time                                  0.21
+  data arrival time                                  -0.91
+  -----------------------------------------------------------
+  slack (MET)                                         0.70
+
+
+  Startpoint: c1_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: c2_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c1_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  c1_reg_reg/Q (DFFPOSX1)                  0.27       0.57 r
+  fa2/ci (full_adder_1)                    0.00       0.57 r
+  fa2/u2_half_adder/a (half_adder_2)       0.00       0.57 r
+  fa2/u2_half_adder/U1/Y (AND2X2)          0.14       0.71 r
+  fa2/u2_half_adder/co (half_adder_2)      0.00       0.71 r
+  fa2/U1/Y (OR2X1)                         0.20       0.91 r
+  fa2/co (full_adder_1)                    0.00       0.91 r
+  c2_reg_reg/D (DFFPOSX1)                  0.00       0.91 r
+  data arrival time                                   0.91
+
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c2_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  library hold time                       -0.09       0.21
+  data required time                                  0.21
+  -----------------------------------------------------------
+  data required time                                  0.21
+  data arrival time                                  -0.91
+  -----------------------------------------------------------
+  slack (MET)                                         0.70
+
+
+  Startpoint: c0_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: c1_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c0_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  c0_reg_reg/Q (DFFPOSX1)                  0.37       0.67 f
+  fa1/ci (full_adder_2)                    0.00       0.67 f
+  fa1/u2_half_adder/a (half_adder_4)       0.00       0.67 f
+  fa1/u2_half_adder/U1/Y (AND2X2)          0.23       0.90 f
+  fa1/u2_half_adder/co (half_adder_4)      0.00       0.90 f
+  fa1/U1/Y (OR2X1)                         0.16       1.06 f
+  fa1/co (full_adder_2)                    0.00       1.06 f
+  c1_reg_reg/D (DFFPOSX1)                  0.00       1.06 f
+  data arrival time                                   1.06
+
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c1_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  library hold time                       -0.07       0.23
+  data required time                                  0.23
+  -----------------------------------------------------------
+  data required time                                  0.23
+  data arrival time                                  -1.06
+  -----------------------------------------------------------
+  slack (MET)                                         0.82
+
+
+  Startpoint: c1_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: c2_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c1_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  c1_reg_reg/Q (DFFPOSX1)                  0.37       0.67 f
+  fa2/ci (full_adder_1)                    0.00       0.67 f
+  fa2/u2_half_adder/a (half_adder_2)       0.00       0.67 f
+  fa2/u2_half_adder/U1/Y (AND2X2)          0.23       0.90 f
+  fa2/u2_half_adder/co (half_adder_2)      0.00       0.90 f
+  fa2/U1/Y (OR2X1)                         0.16       1.06 f
+  fa2/co (full_adder_1)                    0.00       1.06 f
+  c2_reg_reg/D (DFFPOSX1)                  0.00       1.06 f
+  data arrival time                                   1.06
+
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c2_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  library hold time                       -0.07       0.23
+  data required time                                  0.23
+  -----------------------------------------------------------
+  data required time                                  0.23
+  data arrival time                                  -1.06
+  -----------------------------------------------------------
+  slack (MET)                                         0.82
+
+
+  Startpoint: c0_reg_reg (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: sum[1] (output port clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  c0_reg_reg/CLK (DFFPOSX1)                0.00       0.30 r
+  c0_reg_reg/Q (DFFPOSX1)                  0.27       0.57 r
+  fa1/ci (full_adder_2)                    0.00       0.57 r
+  fa1/u2_half_adder/a (half_adder_4)       0.00       0.57 r
+  fa1/u2_half_adder/U2/Y (XOR2X1)          0.31       0.88 r
+  fa1/u2_half_adder/s (half_adder_4)       0.00       0.88 r
+  fa1/s (full_adder_2)                     0.00       0.88 r
+  sum[1] (out)                             0.00       0.88 r
+  data arrival time                                   0.88
+
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.30       0.30
+  output external delay                   -1.65      -1.35
+  data required time                                 -1.35
+  -----------------------------------------------------------
+  data required time                                 -1.35
+  data arrival time                                  -0.88
+  -----------------------------------------------------------
+  slack (MET)                                         2.23
+
+
+1

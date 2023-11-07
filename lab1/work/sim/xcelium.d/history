@@ -1,0 +1,14 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(19Oct2023:13:12:52):( ncverilog -l nc.log +access+r ../../src/mux_b.v ../../src/mux_tb.v )
+s2::(19Oct2023:13:13:09):( ncverilog -l nc.log +access+r ../../src/mux_s.v ../../src/mux_tb.v )
+s3::(06Nov2023:22:47:32):( ncverilog ../src/mux_b.v ../src/mux_tb.v )
+s4::(06Nov2023:22:48:54):( ncverilog ../../src/mux_b.v ../../src/mux_tb.v )
+s5::(06Nov2023:23:00:50):( ncverilog ../../src/mux_b.v ../../src/mux_tb.v )
+s6::(06Nov2023:23:02:56):( ncverilog -l nc.log +access+r ../../src/mux_b.v ../../src/mux_tb.v )
+s7::(06Nov2023:23:05:19):( ncverilog -l nc.log +access+r ../../src/mux_s.v ../../src/mux_tb.v )
+s8::(06Nov2023:23:09:27):( ncverilog -l nc.log +access+r ../../src/mux_b.v ../../src/mux_tb.v )
+s9::(06Nov2023:23:11:15):( ncverilog -l nc.log +access+r ../../src/mux_b.v )
+s10::(06Nov2023:23:11:19):( ncverilog -l nc.log +access+r ../../src/mux_b.v ../../src/mux_tb.v )

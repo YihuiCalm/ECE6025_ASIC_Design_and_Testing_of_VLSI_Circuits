@@ -1,0 +1,9 @@
+//
+// File created by:  xmverilog
+// Do not modify this file
+//
+-l
+nc.log
++access+r
+../../src/mux_b.v
+../../src/mux_tb.v

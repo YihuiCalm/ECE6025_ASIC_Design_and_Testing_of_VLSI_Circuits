@@ -1,0 +1,103 @@
+$date
+    Oct 19, 2023  00:18:39
+$end
+$version
+    TOOL:	xmsim(64)	17.10-s001
+$end
+$timescale
+    10 ps
+$end
+
+$scope module LATCH $end
+$var reg       1 !    NOTIFIER $end
+$upscope $end
+
+
+$scope module DFFSR $end
+$var reg       1 "    NOTIFIER $end
+$upscope $end
+
+
+$scope module DFFNEGX1 $end
+$var reg       1 #    NOTIFIER $end
+$upscope $end
+
+
+$scope module ripplecarry4_clk_test $end
+$var parameter 32 $    NSTMTS $end
+$var parameter 32 %    DFSHIFTS $end
+$var parameter 32 &    NAMELENGTH $end
+$var parameter 32 '    FILELENGTH $end
+$var parameter 32 (    MAXCHLEN $end
+$var parameter 32 )    NCHAINS $end
+$var parameter 32 *    NINPUTS $end
+$var parameter 32 +    NOUTPUTS $end
+$var parameter 32 ,    CUM_WIDTH $end
+$var parameter 32 -    NSIS $end
+$var parameter 32 .    NSOUTS $end
+$var parameter 32 /    WFT_IDS $end
+$var parameter 32 0    SIG_IDS $end
+$var parameter 32 1    SIG_IDS_W $end
+$var parameter 32 2    MAX_WIDTH $end
+$var parameter 32 3    MAX_SIGW $end
+$var parameter 32 4    PARSERINC $end
+$var parameter 32 5    SYNC_LATENCY $end
+$var real     64 6    PRTIME $end
+$var integer  32 7    diagf $end
+
+$scope module dut $end
+
+$scope module c0_reg_reg $end
+$var reg       1 8    NOTIFIER $end
+$upscope $end
+
+
+$scope module c1_reg_reg $end
+$var reg       1 9    NOTIFIER $end
+$upscope $end
+
+
+$scope module c2_reg_reg $end
+$var reg       1 :    NOTIFIER $end
+$upscope $end
+
+$upscope $end
+
+
+$scope task read_data $end
+$var integer  32 ;    tdf $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+r0 6
+b11 5
+b0 4
+b1 3
+b1010 2
+b101 1
+b10001 0
+b1 /
+b0 .
+b0 -
+b11110 ,
+b101 +
+b1010 *
+b0 )
+b0 (
+b10000000000 '
+b11001000 &
+b11111111111111111111111111111111 %
+b1110 $
+x!
+x"
+x#
+b0 7
+x8
+x9
+x:
+b10000000000000000000000000000011 ;
+$end
+#600000

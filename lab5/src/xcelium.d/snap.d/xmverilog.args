@@ -1,0 +1,11 @@
+//
+// File created by:  xmverilog
+// Do not modify this file
+//
+-l
+nc.log
++access+r
+maxtb.v
+ripplecarry4_clk_scan.v
+osu_scan.v
+osu05_stdcells.v

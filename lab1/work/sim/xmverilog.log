@@ -1,0 +1,44 @@
+xmverilog(64): 17.10-s001: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	xmverilog	17.10-s001: Started on Nov 06, 2023 at 23:00:50 EST
+ncverilog
+	../../src/mux_b.v
+	../../src/mux_tb.v
+xmverilog: *W,NCEXDEP: Executable (ncverilog) is deprecated. Use (xmverilog) instead.
+Recompiling... reason: file '/home/ead/yihui/ece6250/lab1/src/mux_tb.v' is newer than expected.
+	expected: Mon Nov  6 22:47:30 2023
+	actual:   Mon Nov  6 23:00:47 2023
+file: ../../src/mux_tb.v
+	module worklib.mux_tb:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: ..........
+  $shm_save;
+          |
+xmelab: *W,IGNORU (/home/ead/yihui/ece6250/lab1/src/mux_tb.v,26|10): Unimplemented function or task.
+.......... Done
+	Generating native compiled code:
+		worklib.mux_tb:v <0x7233a230>
+			streams:   2, words:  1354
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		            Instances  Unique
+		Modules:            2       2
+		Registers:          3       3
+		Scalar wires:       4       -
+		Initial blocks:     2       2
+		Cont. assignments:  0       1
+	Writing initial simulation snapshot: worklib.mux_tb:v
+Loading snapshot worklib.mux_tb:v .................... Done
+xcelium> source /apps/vlsi_2018/cadence/XCELIUM1710/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,SHMPAAX: some objects excluded from $shm_probe due to access restrictions, use +access+r on command line for access to all objects.
+            File: /home/ead/yihui/ece6250/lab1/src/mux_tb.v, line = 25, pos = 11
+           Scope: mux_tb
+            Time: 0 FS + 0
+
+Simulation complete via $finish(1) at time 15 NS + 0
+/home/ead/yihui/ece6250/lab1/src/mux_tb.v:17   #5 $finish; // The $finish call ends simulation.
+xcelium> exit
+TOOL:	xmverilog	17.10-s001: Exiting on Nov 06, 2023 at 23:00:57 EST  (total: 00:00:07)

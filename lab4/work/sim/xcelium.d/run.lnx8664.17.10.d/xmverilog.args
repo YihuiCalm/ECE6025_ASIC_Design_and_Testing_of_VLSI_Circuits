@@ -1,0 +1,10 @@
+//
+// File created by:  xmverilog
+// Do not modify this file
+//
+-l
+nc.log
++access+r
+../../src/syn/full_adder_syn.v
+../../src/full_adder_tb_patterns.v
+../../src/syn/osu05_stdcells.v

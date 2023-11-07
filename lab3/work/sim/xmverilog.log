@@ -1,0 +1,55 @@
+xmverilog(64): 17.10-s001: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	xmverilog	17.10-s001: Started on Nov 07, 2023 at 00:41:12 EST
+xmverilog
+	../../src/full_adder_tb.v
+	../../src/syn/full_adder_syn.v
+	+incdir+../../src/
+Recompiling... reason: file '/home/ead/yihui/ece6250/lab3/src/full_adder_tb.v' is newer than expected.
+	expected: Tue Nov  7 00:40:05 2023
+	actual:   Tue Nov  7 00:41:10 2023
+file: ../../src/full_adder_tb.v
+	module worklib.full_adder_tb:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.full_adder_tb:v <0x49f26b38>
+			streams:   6, words:  7624
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                15       8
+		Primitives:             11       4
+		Timing outputs:         11       3
+		Registers:               5       5
+		Scalar wires:           14       -
+		Always blocks:           1       1
+		Initial blocks:          2       2
+		Pseudo assignments:      3       3
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.full_adder_tb:v
+Loading snapshot worklib.full_adder_tb:v .................... Done
+xcelium> source /apps/vlsi_2018/cadence/XCELIUM1710/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *W,DVEXACC: some objects excluded from $dumpvars due to access restrictions, use +access+r on command line for access to all objects.
+            File: /home/ead/yihui/ece6250/lab3/src/full_adder_tb.v, line = 41, pos = 16
+           Scope: full_adder_tb
+            Time: 0 FS + 0
+
+================TESTBENCH==============
+*FAIL: a=0 b=0 ci=1 s=1 co=0   @ 3000
+PASS: a=0 b=1 ci=0 s=1 co=0    @ 5000
+*FAIL: a=0 b=1 ci=1 s=0 co=1   @ 7000
+PASS: a=1 b=0 ci=0 s=1 co=0    @ 9000
+*FAIL: a=1 b=0 ci=1 s=0 co=1   @11000
+PASS: a=1 b=1 ci=0 s=0 co=1    @13000
+*FAIL: a=1 b=1 ci=1 s=1 co=1   @15000
+PASS: a=0 b=0 ci=0 s=0 co=0    @17000
+=================FINISH================
+Simulation complete via $finish(1) at time 18 NS + 0
+/home/ead/yihui/ece6250/lab3/src/full_adder_tb.v:52         $finish;
+xcelium> exit
+TOOL:	xmverilog	17.10-s001: Exiting on Nov 07, 2023 at 00:41:23 EST  (total: 00:00:11)

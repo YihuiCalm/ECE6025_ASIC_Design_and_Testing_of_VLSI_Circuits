@@ -1,0 +1,274 @@
+STIL 1.0 { Design 2005; }
+Header {
+   Title "  TetraMAX(R)  O-2018.06-SP1-i20180719_204316 STIL output";
+   Date "Tue Nov  7 12:51:37 2023";
+   Source "Minimal STIL for design `ripplecarry4_clk'";
+   History {
+      Ann {*  Incoming_Date "Tue Nov  7 12:06:24 2023"  *}
+      Ann {*  Incoming_Src "DFT Compiler O-2018.06-SP1"  *}
+      Ann {*     Uncollapsed Stuck Fault Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* fault class                     code   #faults *}
+      Ann {* ------------------------------  ----  --------- *}
+      Ann {* Detected                         DT        282 *}
+      Ann {* Possibly detected                PT          0 *}
+      Ann {* Undetectable                     UD          0 *}
+      Ann {* ATPG untestable                  AU          0 *}
+      Ann {* Not detected                     ND          0 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* total faults                               282 *}
+      Ann {* test coverage                           100.00% *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {*            Pattern Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* #internal patterns                          14 *}
+      Ann {*     #full_sequential patterns               14 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {* rule  severity  #fails  description *}
+      Ann {* ----  --------  ------  --------------------------------- *}
+      Ann {* N20   warning        1  underspecified UDP *}
+      Ann {*  *}
+      Ann {* clock_name        off  usage *}
+      Ann {* ----------------  ---  -------------------------- *}
+      Ann {* clk                0   master shift  *}
+      Ann {*  *}
+      Ann {* There are no constraint ports *}
+      Ann {* There are no equivalent pins *}
+      Ann {* There are no net connections *}
+      Ann {* top_module_name = ripplecarry4_clk *}
+      Ann {* Unified STIL Flow *}
+      Ann {* serial_flag = 0 *}
+   }
+}
+Signals {
+   "a[3]" In; "a[2]" In; "a[1]" In; "a[0]" In; "b[3]" In; "b[2]" In; "b[1]" In; "b[0]" In;
+   "cin" In; "clk" In; "rst" In; "test_si" In { ScanIn; } "test_se" In; "sum[3]" Out;
+   "sum[2]" Out; "sum[1]" Out; "sum[0]" Out; "cout" Out; "test_so" Out { ScanOut;
+   }
+}
+SignalGroups {
+   "_pi" = '"a[0]" + "a[1]" + "a[2]" + "a[3]" + "b[0]" + "b[1]" + "b[2]" +
+   "b[3]" + "cin" + "clk" + "rst" + "test_si" + "test_se"'; // #signals=13
+   "_in" = '"a[3]" + "a[2]" + "a[1]" + "a[0]" + "b[3]" + "b[2]" + "b[1]" +
+   "b[0]" + "cin" + "clk" + "rst" + "test_si" + "test_se"'; // #signals=13
+   "all_inputs" = '"a[0]" + "a[1]" + "a[2]" + "a[3]" + "b[0]" + "b[1]" + "b[2]" +
+   "b[3]" + "cin" + "clk" + "rst" + "test_si" + "test_se"'; // #signals=13
+   "_po" = '"cout" + "sum[0]" + "sum[1]" + "sum[2]" + "sum[3]" + "test_so"'; // #signals=6
+   "_si" = '"test_si"' { ScanIn; } // #signals=1
+   "all_outputs" = '"cout" + "sum[0]" + "sum[1]" + "sum[2]" + "sum[3]" +
+   "test_so"'; // #signals=6
+   "all_ports" = '"all_inputs" + "all_outputs"'; // #signals=19
+   "_clk" = '"clk"'; // #signals=1
+   "_so" = '"test_so"' { ScanOut; } // #signals=1
+   "_out" = '"sum[3]" + "sum[2]" + "sum[1]" + "sum[0]" + "cout" + "test_so"'; // #signals=6
+}
+Timing {
+   WaveformTable "_allclock_launch_capture_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "all_inputs" { 0 { '0ns' D; } }
+         "all_inputs" { 1 { '0ns' U; } }
+         "all_inputs" { Z { '0ns' Z; } }
+         "all_inputs" { N { '0ns' N; } }
+         "all_outputs" { X { '0ns' X; '40ns' X; } }
+         "all_outputs" { H { '0ns' X; '40ns' H; } }
+         "all_outputs" { L { '0ns' X; '40ns' L; } }
+         "all_outputs" { T { '0ns' X; '40ns' T; } }
+         "clk" { P { '0ns' D; '45ns' U; '55ns' D; } }
+      }
+   }
+   WaveformTable "_multiclock_capture_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "all_inputs" { 0 { '0ns' D; } }
+         "all_inputs" { 1 { '0ns' U; } }
+         "all_inputs" { Z { '0ns' Z; } }
+         "all_inputs" { N { '0ns' N; } }
+         "all_outputs" { X { '0ns' X; '40ns' X; } }
+         "all_outputs" { H { '0ns' X; '40ns' H; } }
+         "all_outputs" { L { '0ns' X; '40ns' L; } }
+         "all_outputs" { T { '0ns' X; '40ns' T; } }
+         "clk" { P { '0ns' D; '45ns' U; '55ns' D; } }
+      }
+   }
+   WaveformTable "_allclock_launch_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "all_inputs" { 0 { '0ns' D; } }
+         "all_inputs" { 1 { '0ns' U; } }
+         "all_inputs" { Z { '0ns' Z; } }
+         "all_inputs" { N { '0ns' N; } }
+         "all_outputs" { X { '0ns' X; '40ns' X; } }
+         "all_outputs" { H { '0ns' X; '40ns' H; } }
+         "all_outputs" { L { '0ns' X; '40ns' L; } }
+         "all_outputs" { T { '0ns' X; '40ns' T; } }
+         "clk" { P { '0ns' D; '45ns' U; '55ns' D; } }
+      }
+   }
+   WaveformTable "_allclock_capture_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "all_inputs" { 0 { '0ns' D; } }
+         "all_inputs" { 1 { '0ns' U; } }
+         "all_inputs" { Z { '0ns' Z; } }
+         "all_inputs" { N { '0ns' N; } }
+         "all_outputs" { X { '0ns' X; '40ns' X; } }
+         "all_outputs" { H { '0ns' X; '40ns' H; } }
+         "all_outputs" { L { '0ns' X; '40ns' L; } }
+         "all_outputs" { T { '0ns' X; '40ns' T; } }
+         "clk" { P { '0ns' D; '45ns' U; '55ns' D; } }
+      }
+   }
+   WaveformTable "_default_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "all_inputs" { 0 { '0ns' D; } }
+         "all_inputs" { 1 { '0ns' U; } }
+         "all_inputs" { Z { '0ns' Z; } }
+         "all_inputs" { N { '0ns' N; } }
+         "all_outputs" { X { '0ns' X; '40ns' X; } }
+         "all_outputs" { H { '0ns' X; '40ns' H; } }
+         "all_outputs" { L { '0ns' X; '40ns' L; } }
+         "all_outputs" { T { '0ns' X; '40ns' T; } }
+         "clk" { P { '0ns' D; '45ns' U; '55ns' D; } }
+      }
+   }
+}
+ScanStructures {
+   ScanChain "1" {
+      ScanLength 3;
+      ScanIn "test_si";
+      ScanOut "test_so";
+      ScanInversion 0;
+      ScanCells "ripplecarry4_clk.c0_reg_reg.TI" "ripplecarry4_clk.c1_reg_reg.TI" 
+      "ripplecarry4_clk.c2_reg_reg.TI" ;
+      ScanMasterClock "clk" ;
+   }
+}
+PatternBurst "_burst_" {
+   PatList { "_pattern_" {
+   }
+}}
+PatternExec {
+   PatternBurst "_burst_";
+}
+Procedures {
+   "multiclock_capture" {
+      W "_multiclock_capture_WFT_";
+      C { "all_inputs"=\r9 N 0NNN; "all_outputs"=XXXXXX; }
+      V { "_pi"=\r13 # ; "_po"=######; }
+   }
+   "allclock_capture" {
+      W "_allclock_capture_WFT_";
+      C { "all_inputs"=\r9 N 0NNN; "all_outputs"=XXXXXX; }
+      V { "_pi"=\r13 # ; "_po"=######; }
+   }
+   "allclock_launch" {
+      W "_allclock_launch_WFT_";
+      C { "all_inputs"=\r9 N 0NNN; "all_outputs"=XXXXXX; }
+      V { "_pi"=\r13 # ; "_po"=######; }
+   }
+   "allclock_launch_capture" {
+      W "_allclock_launch_capture_WFT_";
+      C { "all_inputs"=\r9 N 0NNN; "all_outputs"=XXXXXX; }
+      V { "_pi"=\r13 # ; "_po"=######; }
+   }
+   "load_unload" {
+      W "_default_WFT_";
+      C { "all_inputs"=\r9 N 0NNN; "all_outputs"=XXXXXX; }
+      "Internal_scan_pre_shift": V { "test_se"=1; }
+      Shift {          W "_default_WFT_";
+         V { "_clk"=P; "_si"=#; "_so"=#; }
+      }
+   }
+}
+MacroDefs {
+   "test_setup" {
+      W "_default_WFT_";
+      C { "all_inputs"=\r13 N ; "all_outputs"=XXXXXX; }
+      V { "clk"=0; }
+      V { }
+   }
+}
+Pattern "_pattern_" {
+   W "_multiclock_capture_WFT_";
+   "precondition all Signals": C { "_pi"=\r13 0 ; "_po"=XXXXXX; }
+   Macro "test_setup";
+   Ann {* full_sequential *}
+   "pattern 0": Call "load_unload" { 
+      "test_si"=111; }
+   Call "multiclock_capture" { 
+      "_pi"=110011100P000; "_po"=LLHLHH; }
+   Ann {* full_sequential *}
+   "pattern 1": Call "load_unload" { 
+      "test_so"=HHH; "test_si"=100; }
+   Call "multiclock_capture" { 
+      "_pi"=010101011P000; "_po"=HHLLHH; }
+   Ann {* full_sequential *}
+   "pattern 2": Call "load_unload" { 
+      "test_so"=LHL; "test_si"=000; }
+   Call "multiclock_capture" { 
+      "_pi"=111101011P000; "_po"=HLLHLL; }
+   Ann {* full_sequential *}
+   "pattern 3": Call "load_unload" { 
+      "test_so"=LHH; "test_si"=011; }
+   Call "multiclock_capture" { 
+      "_pi"=110001000P000; "_po"=LHHHLL; }
+   Ann {* full_sequential *}
+   "pattern 4": Call "load_unload" { 
+      "test_so"=LHL; "test_si"=000; }
+   Call "multiclock_capture" { 
+      "_pi"=000110110P010; "_po"=HHLHLL; }
+   Ann {* full_sequential *}
+   "pattern 5": Call "load_unload" { 
+      "test_so"=LLL; "test_si"=110; }
+   Call "multiclock_capture" { 
+      "_pi"=0110001100111; "_po"=HLHHLH; }
+   Ann {* full_sequential *}
+   "pattern 6": Call "load_unload" { 
+      "test_so"=HHL; "test_si"=110; }
+   Call "multiclock_capture" { 
+      "_pi"=111010011P110; "_po"=HHHLLH; }
+   Ann {* full_sequential *}
+   "pattern 7": Call "load_unload" { 
+      "test_so"=LLL; "test_si"=010; }
+   Call "multiclock_capture" { 
+      "_pi"=111110000P000; "_po"=LLHLHL; }
+   Ann {* full_sequential *}
+   "pattern 8": Call "load_unload" { 
+      "test_so"=HLH; "test_si"=010; }
+   Call "multiclock_capture" { 
+      "_pi"=111001100P110; "_po"=LHLHLL; }
+   Ann {* full_sequential *}
+   "pattern 9": Call "load_unload" { 
+      "test_so"=LLL; "test_si"=111; }
+   Call "multiclock_capture" { 
+      "_pi"=100100100P010; "_po"=HHHLLH; }
+   Ann {* full_sequential *}
+   "pattern 10": Call "load_unload" { 
+      "test_so"=HLL; "test_si"=001; }
+   Call "multiclock_capture" { 
+      "_pi"=010110001P010; "_po"=LLLLHL; }
+   Ann {* full_sequential *}
+   "pattern 11": Call "load_unload" { 
+      "test_so"=LHH; "test_si"=000; }
+   Call "multiclock_capture" { 
+      "_pi"=100001101P010; "_po"=LLHHLL; }
+   Ann {* full_sequential *}
+   "pattern 12": Call "load_unload" { 
+      "test_so"=LLH; "test_si"=111; }
+   Call "multiclock_capture" { 
+      "_pi"=111000100P010; "_po"=LHLHHH; }
+   Ann {* full_sequential *}
+   "pattern 13": Call "load_unload" { 
+      "test_so"=HHL; "test_si"=010; }
+   Call "multiclock_capture" { 
+      "_pi"=1110011100001; "_po"=LHLHHL; }
+   Ann {* full_sequential *}
+   "end 13 unload": Call "load_unload" { 
+      "test_so"=LHL; }
+}
+
+// Patterns reference 46 V statements, generating 76 test cycles

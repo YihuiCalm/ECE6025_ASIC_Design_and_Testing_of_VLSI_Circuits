@@ -1,0 +1,4 @@
+set search_path [list . ${search_path} /apps/design_kits/osu_stdcells_v2p7/synopsys/lib/ami05 "./src" "./db"] 
+set target_library osu05_stdcells.db 
+set link_library { * osu05_stdcells.db } 
+set acs_work_dir "./work/syn/" 

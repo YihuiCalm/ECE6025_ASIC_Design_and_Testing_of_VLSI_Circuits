@@ -1,0 +1,201 @@
+STIL 1.0 { Design 2005; }
+Header {
+   Title "  TetraMAX(R)  O-2018.06-SP1-i20180719_204316 STIL output";
+   Date "Thu Oct 19 00:05:53 2023";
+   History {
+      Ann {*     Uncollapsed Stuck Fault Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* fault class                     code   #faults *}
+      Ann {* ------------------------------  ----  --------- *}
+      Ann {* Detected                         DT        238 *}
+      Ann {* Possibly detected                PT          2 *}
+      Ann {* Undetectable                     UD          0 *}
+      Ann {* ATPG untestable                  AU          0 *}
+      Ann {* Not detected                     ND          0 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* total faults                               240 *}
+      Ann {* test coverage                            99.58% *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {*            Pattern Summary Report *}
+      Ann {* ----------------------------------------------- *}
+      Ann {* #internal patterns                           8 *}
+      Ann {*     #full_sequential patterns                8 *}
+      Ann {* ----------------------------------------------- *}
+      Ann {*  *}
+      Ann {* rule  severity  #fails  description *}
+      Ann {* ----  --------  ------  --------------------------------- *}
+      Ann {* N23   warning        1  inconsistent UDP *}
+      Ann {* B10   warning        1  unconnected module internal net *}
+      Ann {* C2    warning        3  unstable nonscan DFF when clocks off *}
+      Ann {*  *}
+      Ann {* There are no clocks *}
+      Ann {* There are no constraint ports *}
+      Ann {* There are no equivalent pins *}
+      Ann {* There are no net connections *}
+      Ann {* top_module_name = ripplecarry4_clk *}
+      Ann {* Unified STIL Flow *}
+      Ann {* min_n_shifts = 1 *}
+      Ann {* serial_flag = 1 *}
+   }
+}
+Signals {
+   "a[3]" In; "a[2]" In; "a[1]" In; "a[0]" In; "b[3]" In; "b[2]" In; "b[1]" In; "b[0]" In;
+   "cin" In; "clk" In; "sum[3]" Out; "sum[2]" Out; "sum[1]" Out; "sum[0]" Out; "cout" Out;
+}
+SignalGroups {
+   "_default_In_Timing_" = '"a[3]" + "a[2]" + "a[1]" + "a[0]" + "b[3]" + "b[2]" +
+   "b[1]" + "b[0]" + "cin" + "clk"'; // #signals=10
+   "_pi" = '"a[3]" + "a[2]" + "a[1]" + "a[0]" + "b[3]" + "b[2]" + "b[1]" +
+   "b[0]" + "cin" + "clk"'; // #signals=10
+   "_in" = '"a[3]" + "a[2]" + "a[1]" + "a[0]" + "b[3]" + "b[2]" + "b[1]" +
+   "b[0]" + "cin" + "clk"'; // #signals=10
+   "_default_Out_Timing_" = '"sum[3]" + "sum[2]" + "sum[1]" + "sum[0]" + "cout"';
+   // #signals=5
+   "_po" = '"sum[3]" + "sum[2]" + "sum[1]" + "sum[0]" + "cout"'; // #signals=5
+   "_out" = '"sum[3]" + "sum[2]" + "sum[1]" + "sum[0]" + "cout"'; // #signals=5
+}
+Timing {
+   WaveformTable "_default_WFT_" {
+      Period '100ns';
+      Waveforms {
+         "_default_In_Timing_" { 0 { '0ns' D; } }
+         "_default_In_Timing_" { 1 { '0ns' U; } }
+         "_default_In_Timing_" { Z { '0ns' Z; } }
+         "_default_In_Timing_" { N { '0ns' N; } }
+         "_default_Out_Timing_" { X { '0ns' X; } }
+         "_default_Out_Timing_" { H { '0ns' X; '40ns' H; } }
+         "_default_Out_Timing_" { T { '0ns' X; '40ns' T; } }
+         "_default_Out_Timing_" { L { '0ns' X; '40ns' L; } }
+      }
+   }
+}
+ScanStructures {
+   // Uncomment and modify the following to suit your design
+   // ScanChain "chain_name" { ScanIn "chain_input_name"; ScanOut "chain_output_name"; }
+}
+PatternBurst "_burst_" {
+   PatList { "_pattern_" {
+   }
+}}
+PatternExec {
+   PatternBurst "_burst_";
+}
+Procedures {
+   "capture" {
+      W "_default_WFT_";
+      C { "_po"=XXXXX; }
+      "forcePI": V { "_pi"=\r10 # ; }
+      "measurePO": V { "_po"=#####; }
+   }
+   // Uncomment and modify the following to suit your design
+   // load_unload {
+      // V { } // force clocks off and scan enable pins active
+      // Shift { V { _si=#; _so=#; }} // pulse shift clocks
+   // }
+}
+MacroDefs {
+}
+Pattern "_pattern_" {
+   W "_default_WFT_";
+   "precondition all Signals": C { "_pi"=\r10 0 ; "_po"=XXXXX; }
+   Ann {* full_sequential *}
+   "pattern 0": V { "_pi"=0111111100; }
+   V { "_po"=XXXLX; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1010101001; }
+   V { "_po"=HHHLH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1111011100; }
+   "end 0 measurePO": V { "_po"=LHHLH; }
+   C { "_po"= \r5 X ; }
+   Ann {* full_sequential *}
+   "pattern 1": V { "_pi"=1100100000; }
+   V { "_po"=HLHLH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0101000001; }
+   V { "_po"=HHLHL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0100101011; }
+   "end 1 measurePO": V { "_po"=LHHHH; }
+   C { "_po"= \r5 X ; }
+   Ann {* full_sequential *}
+   "pattern 2": V { "_pi"=0011100000; }
+   V { "_po"=LLHHH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1011001011; }
+   V { "_po"=HLLLL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0010000110; }
+   V { "_po"=LLHLL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1000101111; }
+   V { "_po"=LLLLH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1111100100; }
+   "end 2 measurePO": V { "_po"=LHLLH; }
+   C { "_po"= \r5 X ; }
+   Ann {* full_sequential *}
+   "pattern 3": V { "_pi"=0100000010; }
+   V { "_po"=LHHHL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1111001101; }
+   V { "_po"=HHLLL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0010110101; }
+   "end 3 measurePO": V { "_po"=HHHHL; }
+   C { "_po"= \r5 X ; }
+   Ann {* full_sequential *}
+   "pattern 4": V { "_pi"=0110011100; }
+   V { "_po"=LLLHL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0110110101; }
+   V { "_po"=LHHHH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0111110101; }
+   "end 4 measurePO": V { "_po"=LHHLH; }
+   C { "_po"= \r5 X ; }
+   Ann {* full_sequential *}
+   "pattern 5": V { "_pi"=0101011110; }
+   V { "_po"=HHHHL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1110011101; }
+   V { "_po"=LLHHH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1010100000; }
+   V { "_po"=HLLLH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1101010011; }
+   V { "_po"=HHLLL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0011000000; }
+   "end 5 measurePO": V { "_po"=LHHHL; }
+   C { "_po"= \r5 X ; }
+   Ann {* full_sequential *}
+   "pattern 6": V { "_pi"=0110101110; }
+   V { "_po"=HLLLL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0111110101; }
+   V { "_po"=LHLLH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=0011100110; }
+   V { "_po"=LHLHH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1110011101; }
+   "end 6 measurePO": V { "_po"=HHHHL; }
+   C { "_po"= \r5 X ; }
+   Ann {* full_sequential *}
+   "pattern 7": V { "_pi"=0100000110; }
+   V { "_po"=LLHLL; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1100010001; }
+   V { "_po"=LLHLH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1000010100; }
+   V { "_po"=LHHHH; }
+   C { "_po"= \r5 X ; }
+   V { "_pi"=1110000001; }
+   "end 7 measurePO": V { "_po"=HHHLL; }
+}
+
+// Patterns reference 60 V statements, generating 60 test cycles

@@ -1,0 +1,29 @@
+xmverilog(64): 17.10-s001: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	xmverilog	17.10-s001: Started on Nov 06, 2023 at 23:11:19 EST
+ncverilog
+	-l
+	nc.log
+	+access+r
+	../../src/mux_b.v
+	../../src/mux_tb.v
+xmverilog: *W,NCEXDEP: Executable (ncverilog) is deprecated. Use (xmverilog) instead.
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		            Instances  Unique
+		Modules:            2       2
+		Registers:          3       3
+		Scalar wires:       5       -
+		Initial blocks:     2       2
+		Cont. assignments:  0       1
+	Writing initial simulation snapshot: worklib.mux_tb:v
+Loading snapshot worklib.mux_tb:v .................... Done
+xcelium> source /apps/vlsi_2018/cadence/XCELIUM1710/tools/xcelium/files/xmsimrc
+xcelium> run
+Simulation complete via $finish(1) at time 15 NS + 0
+/home/ead/yihui/ece6250/lab1/src/mux_tb.v:17   #5 $finish; // The $finish call ends simulation.
+xcelium> exit
+TOOL:	xmverilog	17.10-s001: Exiting on Nov 06, 2023 at 23:11:20 EST  (total: 00:00:01)

@@ -1,0 +1,34 @@
+xmverilog(64): 17.10-s001: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	xmverilog	17.10-s001: Started on Oct 18, 2023 at 17:32:36 EDT
+xmverilog
+	../../src/full_adder_tb.v
+	+access+r
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.half_adder:v <0x7fb3ffe6>
+			streams:   1, words:   272
+		worklib.full_adder:v <0x7820b803>
+			streams:   0, words:     0
+		worklib.full_adder_tb:v <0x07cb3d23>
+			streams:   6, words:  5874
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 4       3
+		Registers:               4       4
+		Scalar wires:            8       -
+		Initial blocks:          6       6
+		Cont. assignments:       2       2
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.full_adder_tb:v
+Loading snapshot worklib.full_adder_tb:v .................... Done
+xcelium> source /apps/vlsi_2018/cadence/XCELIUM1710/tools/xcelium/files/xmsimrc
+xcelium> run
+Simulation complete via $finish(1) at time 16 NS + 0
+/home/ead/yihui/ece6250/lab2/src/full_adder_tb.v:57     $finish;
+xcelium> exit
+TOOL:	xmverilog	17.10-s001: Exiting on Oct 18, 2023 at 17:32:37 EDT  (total: 00:00:01)
